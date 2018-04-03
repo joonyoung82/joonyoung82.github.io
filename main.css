@@ -161,17 +161,32 @@ body, html {
   margin-bottom: 50px;
 }
 
-.img {
-  border-radius: 100%;
-  display: inline-block;
-  float: center;
-  padding: 0px;
-  margin: 15px;
-  flex: 0 0 150px;
-  justify-content: center;
-  overflow: hidden;
-  position: relative;
-  
+@media (min-width: 360px){
+  .img {
+    border-radius: 100%;
+    display: inline-block;
+    float: center;
+    padding: 0px;
+    margin: 12px;
+    flex: 0 0 150px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+}
+
+@media (max-width: 360px){
+  .img {
+    border-radius: 100%;
+    display: inline-block;
+    float: center;
+    padding: 0px;
+    margin: 8px;
+    flex: 0 0 150px;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
 }
 
 .img img {
