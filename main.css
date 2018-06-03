@@ -349,15 +349,15 @@ body, html {
   float: left;
   margin: 2px 0px;
 }
-@media (min-width: 480px){
+@media (min-width: 360px){
   .duration {
     float: right;
     font-size: 17px;
     margin: 2px 0px;
   }
 }
-@media (max-width: 480px){
-.duration {
+@media (max-width: 360px){
+  .duration {
     float: left;
     font-size: 17px;
     margin: 2px 0px;
