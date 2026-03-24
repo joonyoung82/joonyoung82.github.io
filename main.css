@@ -366,7 +366,6 @@ h4.duration {
   padding: 10px 0 0;
 }
 
-/* ✅ Each link — no gap since label is now an overlay */
 .contact .img {
   display: flex;
   flex-direction: column;
@@ -375,46 +374,56 @@ h4.duration {
   color: #333;
 }
 
-/* ✅ Wrapper that positions overlay on top of icon */
+/* ✅ Circle container */
 .icon-wrap {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 58px;                               /* ✅ matches icon size */
+  height: 58px;                              /* ✅ matches icon size */
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: border-color 0.25s;
+}
+
+/* ✅ Show circle outline on hover — matches icon color */
+.contact .img:hover .icon-wrap {
+  border-color: #333;                        /* ✅ outline appears on hover */
 }
 
 .icon-wrap img {
-  width: 58px;
-  height: 58px;
+  width: 100%;
+  height: 100%;
   display: block;
-  border-radius: 8px;
+  border-radius: 50%;
+  padding: 4px;                              /* slight inset so icon doesn't touch border */
   transition: opacity 0.25s;
 }
 
-/* ✅ Dim the icon slightly on hover so label pops */
+/* ✅ Hide icon on hover */
 .contact .img:hover .icon-wrap img {
-  opacity: 0.35;
+  opacity: 0;
 }
 
-/* ✅ Label overlay — centered over icon, hidden by default */
+/* ✅ Label — centered over icon, hidden by default */
 .contact-label {
   position: absolute;
   inset: 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 600;
   color: #333;
   font-family: 'Quattrocento Sans', sans-serif;
-  opacity: 0;                          /* hidden */
+  opacity: 0;
   transition: opacity 0.25s;
-  pointer-events: none;                /* don't block the link click */
+  pointer-events: none;
 }
 
-/* ✅ Fade label in on hover */
+/* ✅ Show label on hover */
 .contact .img:hover .contact-label {
   opacity: 1;
 }
+
 
 
 /* ============================================================
