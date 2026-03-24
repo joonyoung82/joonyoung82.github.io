@@ -1,3 +1,16 @@
+// ============================================================
+// FIX: Chrome on iOS dynamically changes 100vh as address
+// bar hides/shows — capture real height and lock it as --vh
+// ============================================================
+function setVH() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+setVH();
+window.addEventListener('resize', setVH);
+
+
+
 var modalLF = document.getElementById('myModalLF');
 var btnLF = document.getElementById("myBtnLF");
 var spanLF = document.getElementsByClassName("closeLF")[0];
