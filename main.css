@@ -66,8 +66,8 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100vh;                              /* desktop fallback */
-  min-height: calc(var(--vh, 1vh) * 100);         /* ✅ Chrome iOS fix */
+  min-height: 100vh;                          /* desktop fallback */
+  min-height: calc(var(--vh, 1vh) * 100);     /* ✅ Chrome iOS fix */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -143,6 +143,17 @@ body {
   font-weight: 700;
   margin-bottom: 30px;
   color: #222;
+}
+
+/* ============================================================
+   RESPONSIVE TEXT VARIANTS
+   ============================================================ */
+.mobile-only {
+  display: none;
+}
+
+.desktop-only {
+  display: inline;
 }
 
 /* ============================================================
@@ -299,26 +310,6 @@ h4.duration {
 
 .vicon:hover {
   transform: scale(1.1);
-}
-
-/* ============================================================
-   RESPONSIVE TEXT VARIANTS
-   ============================================================ */
-.mobile-only {
-  display: none;
-}
-
-.desktop-only {
-  display: inline;
-}
-
-@media (max-width: 768px) {
-  .mobile-only {
-    display: inline;
-  }
-  .desktop-only {
-    display: none;
-  }
 }
 
 /* ============================================================
@@ -480,126 +471,10 @@ footer {
     background-color: transparent;
   }
 
-  /* ✅ Strip both background-image AND background-color from .intro */
+  /* ✅ Strip background-image AND background-color from .intro */
   .intro {
     background-image: none !important;
-    background-color: transparent !important;   /* ✅ was #222, was hiding hero-bg */
-    background-attachment: scroll;
-  }
-
-  /* ✅ Pinned to viewport */
-  .hero-bg {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./picture/backgroundimage.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-    z-index: -1;
-  }
-
-  .navbar-collapse .navbar-nav.navbar-center {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 !important;
-    float: none !important;
-    padding: 4px 0;
-  }
-
-  .navbar-collapse .navbar-nav.navbar-center > li {
-    flex: 0 0 33.333%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    float: none !important;
-  }
-
-  .navbar-collapse .navbar-nav.navbar-center > li > a {
-    text-align: center;
-    padding: 10px 4px;
-    font-size: 14px;
-  }
-
-  .introBlock h1 {
-    font-size: 40px;
-  }
-
-  .introBlock p {
-    font-size: 16px;
-  }
-
-  .section-heading {
-    font-size: 2.4rem !important;
-  }
-
-  .worklogo {
-    width: 96px !important;
-    height: 96px !important;
-    object-fit: contain;
-    border-radius: 22px;
-    margin: 0 auto 12px;
-  }
-
-  .row.work {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-wrap: nowrap;
-  }
-
-  .workdescription {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  .companyname {
-    font-size: 17px;
-  }
-
-  .location,
-  .htclocation {
-    font-size: 13px;
-  }
-
-  h4.title {
-    font-size: 13px;
-  }
-
-  h4.duration {
-    font-size: 12px;
-  }
-
-  .dicon {
-    width: 110px;
-    height: 110px;
-  }
-
-  .volunteerWork {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .vicon {
-    width: 104px !important;
-    height: 104px !important;
-    border-radius: 22px;
-  }
-
-  .contact {
-    gap: 24px;
-  }
-}
-@media (max-width: 768px) {
-
-  /* ✅ Strip background off .intro — hero-bg takes over */
-  .intro {
-    background-image: none !important;
+    background-color: transparent !important;
     background-attachment: scroll;
   }
 
@@ -654,6 +529,15 @@ footer {
     font-size: 2.4rem !important;
   }
 
+  /* ✅ Responsive text variants */
+  .mobile-only {
+    display: inline;
+  }
+
+  .desktop-only {
+    display: none;
+  }
+
   /* ✅ Fixed square — !important overrides Bootstrap col-sm-2 width */
   .worklogo {
     width: 96px !important;
@@ -667,7 +551,7 @@ footer {
   .row.work {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    flex-wrap: nowrap;               /* ✅ keeps title+date on one line */
+    flex-wrap: nowrap;                 /* ✅ keeps title+date on one line */
   }
 
   /* ✅ Equal padding on all description rows */
