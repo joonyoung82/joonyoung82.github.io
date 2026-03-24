@@ -48,6 +48,15 @@ body {
 }
 
 /* ============================================================
+   HERO BACKGROUND DIV
+   Desktop: hidden — .intro handles its own background-image
+   Mobile:  fixed to viewport so it never expands on scroll
+   ============================================================ */
+.hero-bg {
+  display: none;
+}
+
+/* ============================================================
    HERO / INTRO
    ============================================================ */
 .intro {
@@ -66,8 +75,7 @@ body {
   color: #fff;
 }
 
-
-/* ✅ Dark overlay — behind text, above background photo */
+/* ✅ Dark overlay — sits on top of background photo, behind text */
 .intro::before {
   content: '';
   position: absolute;
@@ -76,7 +84,7 @@ body {
   z-index: 0;
 }
 
-/* ✅ Keep text above overlay */
+/* ✅ Keep text above the overlay */
 .introBlock {
   position: relative;
   z-index: 1;
@@ -126,6 +134,7 @@ body {
 
 /* ============================================================
    SECTION HEADINGS
+   ✅ !important beats Bootstrap's .jumbotron h1 { font-size: 63px }
    ============================================================ */
 .section-heading {
   text-align: center;
@@ -147,6 +156,7 @@ body {
   padding: 10px 0 30px;
 }
 
+/* ✅ Fixed square — border-radius perfectly even on all images */
 .worklogo {
   display: block;
   width: 160px;
@@ -277,6 +287,7 @@ h4.duration {
   padding: 20px 0;
 }
 
+/* ✅ Fixed square for even border-radius */
 .vicon {
   width: 100px;
   height: 100px;
@@ -376,19 +387,19 @@ h4.duration {
   color: #333;
 }
 
-/* ✅ Circle container */
+/* ✅ Circle container — same size as icon */
 .icon-wrap {
   position: relative;
-  width: 58px;                               /* ✅ matches icon size */
-  height: 58px;                              /* ✅ matches icon size */
+  width: 58px;
+  height: 58px;
   border-radius: 50%;
-  border: 2px solid transparent;
+  border: 2px solid transparent;       /* reserves space — no layout shift */
   transition: border-color 0.25s;
 }
 
-/* ✅ Show circle outline on hover — matches icon color */
+/* ✅ Circle outline appears on hover */
 .contact .img:hover .icon-wrap {
-  border-color: #333;                        /* ✅ outline appears on hover */
+  border-color: #333;
 }
 
 .icon-wrap img {
@@ -396,11 +407,11 @@ h4.duration {
   height: 100%;
   display: block;
   border-radius: 50%;
-  padding: 4px;                              /* slight inset so icon doesn't touch border */
+  padding: 4px;
   transition: opacity 0.25s;
 }
 
-/* ✅ Hide icon on hover */
+/* ✅ Icon fades out on hover */
 .contact .img:hover .icon-wrap img {
   opacity: 0;
 }
@@ -421,12 +432,10 @@ h4.duration {
   pointer-events: none;
 }
 
-/* ✅ Show label on hover */
+/* ✅ Label fades in on hover */
 .contact .img:hover .contact-label {
   opacity: 1;
 }
-
-
 
 /* ============================================================
    FOOTER
@@ -446,14 +455,28 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
 
-  /* ✅ Fix background expansion on iOS Safari:
-     Disable fixed attachment and anchor background to element, not viewport */
+  /* ✅ Strip background off .intro — hero-bg takes over */
   .intro {
+    background-image: none !important;
     background-attachment: scroll;
-    background-size: cover;
   }
 
-  /* ✅ Navbar 3+3: flex-wrap with each item taking exactly 1/3 width */
+  /* ✅ Pinned to viewport — Chrome iOS toolbar hide/show cannot affect it */
+  .hero-bg {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('./picture/backgroundimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    z-index: -1;
+  }
+
+  /* ✅ Navbar 3+3 */
   .navbar-collapse .navbar-nav.navbar-center {
     display: flex !important;
     flex-wrap: wrap;
@@ -464,7 +487,7 @@ footer {
   }
 
   .navbar-collapse .navbar-nav.navbar-center > li {
-    flex: 0 0 33.333%;              /* ✅ exactly 3 per row */
+    flex: 0 0 33.333%;
     display: flex !important;
     justify-content: center;
     align-items: center;
@@ -489,8 +512,7 @@ footer {
     font-size: 2.4rem !important;
   }
 
-  /* ✅ !important forces fixed square despite Bootstrap col-sm-2 overriding width
-        — this is what was making corners look uneven on mobile */
+  /* ✅ Fixed square — !important overrides Bootstrap col-sm-2 width */
   .worklogo {
     width: 96px !important;
     height: 96px !important;
@@ -499,23 +521,35 @@ footer {
     margin: 0 auto 12px;
   }
 
-  /* ✅ Neutralise Bootstrap's .row negative margins so company name,
-        title, and description all start from the same left edge */
+  /* ✅ Neutralise Bootstrap .row negative margins */
   .row.work {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;               /* ✅ keeps title+date on one line */
   }
 
-  /* Left + right breathing room — applies equally to all rows inside workdescription */
+  /* ✅ Equal padding on all description rows */
   .workdescription {
     padding-left: 20px !important;
     padding-right: 20px !important;
   }
 
+  /* ✅ Smaller fonts so title+date and name+location fit on one line */
+  .companyname {
+    font-size: 17px;
+  }
+
   .location,
   .htclocation {
-    font-size: 15px;
+    font-size: 13px;
+  }
+
+  h4.title {
+    font-size: 13px;
+  }
+
+  h4.duration {
+    font-size: 12px;
   }
 
   .dicon {
@@ -523,10 +557,10 @@ footer {
     height: 110px;
   }
 
-  /* ✅ Volunteer icons: CSS Grid forces exactly 2 columns → always 2×2 */
+  /* ✅ Volunteer 2x2 grid */
   .volunteerWork {
     display: grid;
-    grid-template-columns: repeat(2, auto);  /* ✅ 2 columns always */
+    grid-template-columns: repeat(2, auto);
     justify-content: center;
     gap: 20px;
   }
