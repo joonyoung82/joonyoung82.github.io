@@ -13,10 +13,10 @@ body {
 }
 
 /* ============================================================
-   NAVBAR
+   NAVBAR  —  half opaque
    ============================================================ */
 .site-nav {
-  background-color: #1a1a1a !important;
+  background-color: rgba(26, 26, 26, 0.5) !important;
   border: none !important;
   border-radius: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -51,7 +51,8 @@ body {
    HERO / INTRO
    ============================================================ */
 .intro {
-  background-image: url('./picture/background.jpg');
+  background-image: url('./picture/background.jpg');  /* ← update filename if needed */
+  background-color: #222;                             /* fallback if image is missing */
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -114,19 +115,24 @@ body {
 }
 
 /* ============================================================
-   WORK EXPERIENCE / EDUCATION SECTIONS
+   WORK EXPERIENCE  (default gray from Bootstrap jumbotron)
+   EDUCATION        (white background)
    ============================================================ */
+#education.jumbotron {
+  background-color: #fff;
+}
+
 .career {
   padding: 10px 0 30px;
 }
 
-/* ✅ Rounded corners on all company / school logos */
+/* ✅ Larger rounded logos on desktop */
 .worklogo {
   display: block;
-  max-width: 110px;
+  max-width: 160px;
   width: 100%;
   height: auto;
-  border-radius: 16px;
+  border-radius: 20px;
   margin-top: 8px;
 }
 
@@ -134,19 +140,23 @@ body {
   padding: 8px 0;
 }
 
+/* ✅ space-between pushes name left, location right */
 .row.work {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   margin-bottom: 4px;
+  gap: 8px;
 }
 
+/* ── Left-aligned ── */
 .companyname {
   font-family: 'EB Garamond', serif;
   font-size: 22px;
   font-weight: 700;
   margin: 0 0 2px;
+  text-align: left;
 }
 
 .companyname a {
@@ -158,6 +168,15 @@ body {
   text-decoration: underline;
 }
 
+h4.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 4px 0;
+  text-align: left;
+}
+
+/* ── Right-aligned ── */
 .location,
 .htclocation {
   font-size: 15px;
@@ -165,13 +184,9 @@ body {
   margin: 0;
   font-family: 'Quattrocento Sans', sans-serif;
   font-weight: 400;
-}
-
-h4.title {
-  font-size: 16px;
-  font-weight: 600;
-  color: #333;
-  margin: 4px 0;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 h4.duration {
@@ -179,6 +194,9 @@ h4.duration {
   color: #999;
   margin: 4px 0;
   font-weight: 400;
+  text-align: right;
+  white-space: nowrap;
+  margin-left: auto;
 }
 
 .work-p {
@@ -206,13 +224,14 @@ h4.duration {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 24px;
   padding: 20px 0;
 }
 
+/* ✅ Bigger icons */
 .dicon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   transition: transform 0.2s;
   cursor: default;
 }
@@ -234,16 +253,16 @@ h4.duration {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 28px;
   padding: 20px 0;
 }
 
-/* ✅ Rounded corners on volunteer icons */
+/* ✅ Bigger volunteer icons with rounded corners */
 .vicon {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
   cursor: pointer;
-  border-radius: 16px;
+  border-radius: 20px;
   transition: transform 0.2s;
 }
 
@@ -312,23 +331,27 @@ h4.duration {
 /* ============================================================
    CONTACT
    ============================================================ */
+
+/* ✅ Remove gap between contact section and footer */
 .contactme {
   background-color: #f5f5f5;
-  padding: 50px 20px;
+  padding: 50px 20px 50px;
   text-align: center;
+  margin-bottom: 0 !important;   /* override Bootstrap jumbotron margin */
 }
 
-/* ✅ Icons in a horizontal centered row */
+/* ✅ Icon row — below the heading */
 .contact {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   flex-wrap: wrap;
-  gap: 32px;
-  padding: 20px 0;
+  gap: 40px;
+  padding: 10px 0 0;
 }
 
+/* ✅ Each link: icon on top, label underneath */
 .contact .img {
   display: flex;
   flex-direction: column;
@@ -336,6 +359,7 @@ h4.duration {
   text-decoration: none !important;
   color: #333;
   transition: transform 0.2s;
+  gap: 8px;
 }
 
 .contact .img:hover {
@@ -345,21 +369,19 @@ h4.duration {
 .contact .img img {
   width: 58px;
   height: 58px;
+  display: block;
 }
 
-.img__overlay_email,
-.img__overlay_resume,
-.img__overlay_linkedin,
-.img__overlay_github {
-  font-size: 12px;
+/* ✅ Label sits below icon */
+.contact-label {
+  font-size: 13px;
   color: #666;
-  margin-top: 6px;
   text-align: center;
   font-family: 'Quattrocento Sans', sans-serif;
 }
 
 /* ============================================================
-   FOOTER
+   FOOTER  —  flush against contact section
    ============================================================ */
 footer {
   background-color: #1a1a1a;
@@ -368,6 +390,7 @@ footer {
   padding: 20px;
   font-size: 14px;
   font-family: 'Quattrocento Sans', sans-serif;
+  margin-top: 0;
 }
 
 /* ============================================================
@@ -391,7 +414,7 @@ footer {
 
   /* ── Work / Education logos — smaller & centered ── */
   .worklogo {
-    max-width: 72px;
+    max-width: 80px;
     margin: 0 auto 12px;
   }
 
@@ -401,27 +424,32 @@ footer {
     padding-right: 8px;
   }
 
+  /* ── Allow location/date to wrap on small screens ── */
+  .row.work {
+    flex-wrap: wrap;
+  }
+
   /* ── Skill icons — smaller ── */
   .dicon {
-    width: 56px;
-    height: 56px;
+    width: 72px;
+    height: 72px;
   }
 
   /* ── Volunteer icons — smaller ── */
   .vicon {
-    width: 60px;
-    height: 60px;
+    width: 72px;
+    height: 72px;
   }
 
   /* ── Keep icon grids centered ── */
   .development,
   .volunteerWork {
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
   }
 
   /* ── Contact icons stay horizontal & centered ── */
   .contact {
-    gap: 20px;
+    gap: 24px;
   }
 }
