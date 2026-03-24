@@ -107,13 +107,13 @@ body {
 
 /* ============================================================
    SECTION HEADINGS
-   ✅ !important overrides Bootstrap's .jumbotron h1 { font-size: 63px }
-      which was making jumbotron headings larger than div section headings
+   ✅ 2.8rem — larger and consistent across ALL sections
+      !important beats Bootstrap's .jumbotron h1 { font-size: 63px }
    ============================================================ */
 .section-heading {
   text-align: center;
   font-family: 'EB Garamond', serif;
-  font-size: 2.2rem !important;    /* ✅ consistent across ALL sections */
+  font-size: 2.8rem !important;    /* ✅ up from 2.2rem */
   font-weight: 700;
   margin-bottom: 30px;
   color: #222;
@@ -130,7 +130,6 @@ body {
   padding: 10px 0 30px;
 }
 
-/* ✅ Fixed square — border-radius perfectly even on all images */
 .worklogo {
   display: block;
   width: 160px;
@@ -261,7 +260,6 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Fixed square for even border-radius */
 .vicon {
   width: 100px;
   height: 100px;
@@ -411,17 +409,17 @@ footer {
     font-size: 16px;
   }
 
-  /* ✅ Square logos — bigger + more rounded on mobile */
+  /* ✅ Bigger square logos on mobile */
   .worklogo {
-    width: 80px;
-    height: 80px;
-    border-radius: 22px;           /* ✅ up from 16px — rounder on mobile */
+    width: 96px;                   /* ✅ up from 80px */
+    height: 96px;
+    border-radius: 22px;
     margin: 0 auto 12px;
   }
 
-  /* ✅ Slightly more left breathing room for description text */
+  /* Left breathing room for description text */
   .workdescription {
-    padding-left: 20px !important; /* ✅ up from 16px */
+    padding-left: 20px !important;
     padding-right: 8px;
   }
 
@@ -435,17 +433,17 @@ footer {
     font-size: 15px;
   }
 
-  /* ✅ Dev icons — bigger on mobile */
+  /* ✅ Bigger dev icons on mobile */
   .dicon {
-    width: 96px;                   /* ✅ up from 84px */
-    height: 96px;
+    width: 110px;                  /* ✅ up from 96px */
+    height: 110px;
   }
 
-  /* ✅ Volunteer icons — bigger + rounder on mobile */
+  /* ✅ Bigger volunteer icons on mobile */
   .vicon {
-    width: 88px;                   /* ✅ up from 72px */
-    height: 88px;
-    border-radius: 22px;           /* ✅ up from 16px */
+    width: 104px;                  /* ✅ up from 88px */
+    height: 104px;
+    border-radius: 22px;
   }
 
   .development,
