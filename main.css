@@ -1,22 +1,29 @@
 /* ============================================================
+   BASE
+   ============================================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 50px;
+  font-family: 'Quattrocento Sans', sans-serif;
+  margin: 0;
+  color: #333;
+}
+
+/* ============================================================
    NAVBAR
    ============================================================ */
 .site-nav {
-  background-color: rgba(26, 26, 26, 0.5) !important;        /* ✅ solid dark background — no overlap */
-  border: none;
+  background-color: #1a1a1a !important;
+  border: none !important;
   border-radius: 0;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);  /* subtle shadow for depth */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-/* ✅ Center all nav items */
-.navbar-nav.navbar-center {
-  float: none;
-  text-align: center;
-}
-
-.navbar-nav.navbar-center > li {
-  float: none;
-  display: inline-block;
+.site-nav .navbar-toggle .icon-bar {
+  background-color: #fff;
 }
 
 .site-nav .nav > li > a {
@@ -30,20 +37,59 @@
   background-color: transparent;
 }
 
-/* Push page content below fixed navbar */
-body {
-  padding-top: 50px;
+.navbar-nav.navbar-center {
+  float: none !important;
+  text-align: center;
+}
+
+.navbar-nav.navbar-center > li {
+  float: none !important;
+  display: inline-block;
 }
 
 /* ============================================================
-   HERO CTA BUTTON
+   HERO / INTRO
+   ============================================================ */
+.intro {
+  background-image: url('./picture/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+
+.introBlock {
+  padding: 40px 24px;
+}
+
+.introBlock h1 {
+  font-family: 'EB Garamond', serif;
+  font-size: 64px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.introBlock p {
+  font-size: 20px;
+  color: #eee;
+  margin-bottom: 8px;
+}
+
+/* ============================================================
+   CTA BUTTON
    ============================================================ */
 .cta-btn {
   display: inline-block;
   margin-top: 20px;
   padding: 12px 32px;
   background-color: transparent;
-  color: #fff;                        /* ✅ white font */
+  color: #fff !important;
   border: 2px solid #fff;
   border-radius: 4px;
   font-family: 'Quattrocento Sans', sans-serif;
@@ -54,7 +100,7 @@ body {
 
 .cta-btn:hover {
   background-color: #fff;
-  color: #111;
+  color: #111 !important;
   text-decoration: none;
 }
 
@@ -63,4 +109,319 @@ body {
    ============================================================ */
 .section-heading {
   text-align: center;
+  font-family: 'EB Garamond', serif;
+  margin-bottom: 30px;
+}
+
+/* ============================================================
+   WORK EXPERIENCE / EDUCATION SECTIONS
+   ============================================================ */
+.career {
+  padding: 10px 0 30px;
+}
+
+/* ✅ Rounded corners on all company / school logos */
+.worklogo {
+  display: block;
+  max-width: 110px;
+  width: 100%;
+  height: auto;
+  border-radius: 16px;
+  margin-top: 8px;
+}
+
+.workdescription {
+  padding: 8px 0;
+}
+
+.row.work {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-bottom: 4px;
+}
+
+.companyname {
+  font-family: 'EB Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  margin: 0 0 2px;
+}
+
+.companyname a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.companyname a:hover {
+  text-decoration: underline;
+}
+
+.location,
+.htclocation {
+  font-size: 15px;
+  color: #777;
+  margin: 0;
+  font-family: 'Quattrocento Sans', sans-serif;
+  font-weight: 400;
+}
+
+h4.title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  margin: 4px 0;
+}
+
+h4.duration {
+  font-size: 14px;
+  color: #999;
+  margin: 4px 0;
+  font-weight: 400;
+}
+
+.work-p {
+  color: #555;
+  line-height: 1.75;
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.workEnd {
+  border-bottom: 1px solid #e4e4e4;
+  margin: 24px 0 8px;
+}
+
+/* ============================================================
+   SKILLS / DEVELOPMENT CAPABILITIES
+   ============================================================ */
+.skills {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+
+.development {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.dicon {
+  width: 80px;
+  height: 80px;
+  transition: transform 0.2s;
+  cursor: default;
+}
+
+.dicon:hover {
+  transform: scale(1.12);
+}
+
+/* ============================================================
+   VOLUNTEER
+   ============================================================ */
+.volunteer {
+  padding: 50px 20px;
+  text-align: center;
+  background-color: #fff;
+}
+
+.volunteerWork {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px 0;
+}
+
+/* ✅ Rounded corners on volunteer icons */
+.vicon {
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  border-radius: 16px;
+  transition: transform 0.2s;
+}
+
+.vicon:hover {
+  transform: scale(1.1);
+}
+
+/* ============================================================
+   MODALS
+   ============================================================ */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.72);
+}
+
+.modal-content {
+  background-color: #fff;
+  margin: 6% auto;
+  padding: 30px 28px;
+  width: 92%;
+  max-width: 680px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-close {
+  position: absolute;
+  top: 12px;
+  right: 18px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #888;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: #111;
+}
+
+.volunteer-img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+.modal-p {
+  color: #444;
+  line-height: 1.75;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+.modal-img {
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+.contactme {
+  background-color: #f5f5f5;
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* ✅ Icons in a horizontal centered row */
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 32px;
+  padding: 20px 0;
+}
+
+.contact .img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none !important;
+  color: #333;
+  transition: transform 0.2s;
+}
+
+.contact .img:hover {
+  transform: scale(1.08);
+}
+
+.contact .img img {
+  width: 58px;
+  height: 58px;
+}
+
+.img__overlay_email,
+.img__overlay_resume,
+.img__overlay_linkedin,
+.img__overlay_github {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+  text-align: center;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+footer {
+  background-color: #1a1a1a;
+  color: #aaa;
+  text-align: center;
+  padding: 20px;
+  font-size: 14px;
+  font-family: 'Quattrocento Sans', sans-serif;
+}
+
+/* ============================================================
+   MOBILE / RESPONSIVE  (≤ 768 px)
+   ============================================================ */
+@media (max-width: 768px) {
+
+  /* Disable fixed background — broken on iOS Safari */
+  .intro {
+    background-attachment: scroll;
+  }
+
+  /* ── Hero text ── */
+  .introBlock h1 {
+    font-size: 40px;
+  }
+
+  .introBlock p {
+    font-size: 16px;
+  }
+
+  /* ── Work / Education logos — smaller & centered ── */
+  .worklogo {
+    max-width: 72px;
+    margin: 0 auto 12px;
+  }
+
+  /* ── Left-edge breathing room for description text ── */
+  .workdescription {
+    padding-left: 16px !important;
+    padding-right: 8px;
+  }
+
+  /* ── Skill icons — smaller ── */
+  .dicon {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* ── Volunteer icons — smaller ── */
+  .vicon {
+    width: 60px;
+    height: 60px;
+  }
+
+  /* ── Keep icon grids centered ── */
+  .development,
+  .volunteerWork {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  /* ── Contact icons stay horizontal & centered ── */
+  .contact {
+    gap: 20px;
+  }
 }
