@@ -106,12 +106,14 @@ body {
 }
 
 /* ============================================================
-   SECTION HEADINGS  —  all same size across every section
+   SECTION HEADINGS
+   ✅ !important overrides Bootstrap's .jumbotron h1 { font-size: 63px }
+      which was making jumbotron headings larger than div section headings
    ============================================================ */
 .section-heading {
   text-align: center;
   font-family: 'EB Garamond', serif;
-  font-size: 2.2rem;       /* ✅ explicit size — overrides jumbotron vs div differences */
+  font-size: 2.2rem !important;    /* ✅ consistent across ALL sections */
   font-weight: 700;
   margin-bottom: 30px;
   color: #222;
@@ -128,13 +130,13 @@ body {
   padding: 10px 0 30px;
 }
 
-/* ✅ Fixed square container — border-radius looks perfectly even on all images */
+/* ✅ Fixed square — border-radius perfectly even on all images */
 .worklogo {
   display: block;
   width: 160px;
   height: 160px;
-  object-fit: contain;       /* keeps logo proportions inside the square */
-  border-radius: 24px;       /* even on all 4 corners since width == height */
+  object-fit: contain;
+  border-radius: 24px;
   margin-top: 8px;
   background-color: transparent;
 }
@@ -143,7 +145,6 @@ body {
   padding: 8px 0;
 }
 
-/* space-between pushes name/title left, location/date right */
 .row.work {
   display: flex;
   align-items: baseline;
@@ -179,10 +180,10 @@ h4.title {
   text-align: left;
 }
 
-/* ── Right-aligned — slightly bigger font ── */
+/* ── Right-aligned ── */
 .location,
 .htclocation {
-  font-size: 18px;           /* ✅ up from 15px */
+  font-size: 18px;
   color: #777;
   margin: 0;
   font-family: 'Quattrocento Sans', sans-serif;
@@ -193,7 +194,7 @@ h4.title {
 }
 
 h4.duration {
-  font-size: 15px;           /* ✅ up from 14px */
+  font-size: 15px;
   color: #999;
   margin: 4px 0;
   font-weight: 400;
@@ -231,7 +232,6 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Slightly bigger than before */
 .dicon {
   width: 116px;
   height: 116px;
@@ -261,7 +261,7 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Fixed square so border-radius is perfectly even */
+/* ✅ Fixed square for even border-radius */
 .vicon {
   width: 100px;
   height: 100px;
@@ -381,7 +381,7 @@ h4.duration {
 }
 
 /* ============================================================
-   FOOTER  —  flush against contact section, no gap
+   FOOTER
    ============================================================ */
 footer {
   background-color: #1a1a1a;
@@ -398,6 +398,7 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
 
+  /* Disable fixed background — broken on iOS Safari */
   .intro {
     background-attachment: scroll;
   }
@@ -410,39 +411,41 @@ footer {
     font-size: 16px;
   }
 
-  /* ── Logos smaller on mobile, still square for even corners ── */
+  /* ✅ Square logos — bigger + more rounded on mobile */
   .worklogo {
     width: 80px;
     height: 80px;
-    border-radius: 16px;
+    border-radius: 22px;           /* ✅ up from 16px — rounder on mobile */
     margin: 0 auto 12px;
   }
 
+  /* ✅ Slightly more left breathing room for description text */
   .workdescription {
-    padding-left: 16px !important;
+    padding-left: 20px !important; /* ✅ up from 16px */
     padding-right: 8px;
   }
 
+  /* Allow location/date to wrap on very small screens */
   .row.work {
     flex-wrap: wrap;
   }
 
-  /* ── Location slightly smaller on very small screens ── */
   .location,
   .htclocation {
     font-size: 15px;
   }
 
-  /* ✅ Dev icons — bigger than before on mobile too */
+  /* ✅ Dev icons — bigger on mobile */
   .dicon {
-    width: 84px;
-    height: 84px;
+    width: 96px;                   /* ✅ up from 84px */
+    height: 96px;
   }
 
+  /* ✅ Volunteer icons — bigger + rounder on mobile */
   .vicon {
-    width: 72px;
-    height: 72px;
-    border-radius: 16px;
+    width: 88px;                   /* ✅ up from 72px */
+    height: 88px;
+    border-radius: 22px;           /* ✅ up from 16px */
   }
 
   .development,
