@@ -26,6 +26,68 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond:600,700|Quattrocento+Sans" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="./picture/titleicon.png" />
+
+  <style>
+    /* ── Navbar ── */
+    .site-nav {
+      background-color: #1a1a1a !important;
+      border: none !important;
+      border-radius: 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    }
+    .site-nav .navbar-toggle .icon-bar {
+      background-color: #fff;
+    }
+    .site-nav .nav > li > a {
+      color: #ccc;
+      font-family: 'Quattrocento Sans', sans-serif;
+      transition: color 0.2s;
+    }
+    .site-nav .nav > li > a:hover {
+      color: #fff;
+      background-color: transparent;
+    }
+
+    /* ── Center navbar items ── */
+    .navbar-nav.navbar-center {
+      float: none !important;
+      text-align: center;
+    }
+    .navbar-nav.navbar-center > li {
+      float: none !important;
+      display: inline-block;
+    }
+
+    /* ── Push body below fixed navbar ── */
+    body {
+      padding-top: 50px;
+    }
+
+    /* ── CTA Button ── */
+    .cta-btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 32px;
+      background-color: transparent;
+      color: #fff !important;           /* ✅ white font */
+      border: 2px solid #fff;
+      border-radius: 4px;
+      font-family: 'Quattrocento Sans', sans-serif;
+      font-size: 16px;
+      text-decoration: none;
+      transition: background-color 0.3s, color 0.3s;
+    }
+    .cta-btn:hover {
+      background-color: #fff;
+      color: #111 !important;
+      text-decoration: none;
+    }
+
+    /* ── Section headings ── */
+    .section-heading {
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
 
@@ -34,7 +96,6 @@
   <!-- ============================================================ -->
   <nav class="navbar navbar-fixed-top site-nav">
     <div class="container">
-      <!-- Mobile hamburger toggle only (no brand/name) -->
       <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu" aria-expanded="false">
           <span class="icon-bar"></span>
@@ -184,14 +245,16 @@
         <div class="col-sm-7 text-left workdescription">
           <div class="row work">
             <h3 class="companyname"><a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology</a></h3>
-            <h3 class="location">Atlanta, GA</h3>
+            <!-- ✅ "Atlanta, GA" replaced with "Online" -->
+            <h3 class="location">Online</h3>
           </div>
           <div class="row work">
             <h4 class="title">M.S. in Analytics</h4>
             <h4 class="duration">Expected May 2028</h4>
           </div>
           <div class="row work">
-            <p class="work-p">Pursuing Georgia Tech's OMSA (Online Master of Science in Analytics), ranked the #1 most affordable online graduate analytics program in the U.S. The program bridges statistical modeling, machine learning, and computational data analysis — equipping me to bring deeper data-driven insight into software quality engineering, test automation, and product decision-making. Coursework spans Python-based analytics, regression & forecasting, data visualization, and business analytics strategy.</p>
+            <!-- ✅ Shortened GT text -->
+            <p class="work-p">Pursuing Georgia Tech's OMSA (Online Master of Science in Analytics), ranked the #1 most affordable online graduate analytics program in the U.S. Coursework spans statistical modeling, machine learning, data visualization, and business analytics — applied directly to my work in software quality and test automation.</p>
           </div>
           <div class="workEnd"></div>
         </div>
@@ -214,7 +277,8 @@
             <h4 class="duration">May 2007</h4>
           </div>
           <div class="row work">
-            <p class="work-p">NJIT presented opportunities to develop knowledge of mathematics, science and engineering. Years of phenomenal professors taught me the broad education necessary to understand the impact of engineering solutions in a global, economic, environmental and societal context. My experience serving as student president in KCCC across 10 campuses in the NY metropolitan area strengthened my leadership skills and expanded my comfort zone.</p>
+            <!-- ✅ Shortened NJIT text -->
+            <p class="work-p">Studied mathematics, science, and engineering with a focus on systems thinking and problem solving. Served as student president of KCCC across 10 campuses in the NY metropolitan area, building strong leadership and communication skills.</p>
           </div>
           <div class="workEnd"></div>
         </div>
@@ -268,7 +332,7 @@
             <img src="./picture/mainLivingfields1600.jpg" class="img-responsive volunteer-img">
           </a>
           <p class="modal-p">Living Fields is a church planted in Lynn, MA., which focuses on spreading hope and the good news to Cambodian killing fields refugees. Many Cambodians suffer effects from the Khmer Rouge genocide in the 70's from PTSD, alcohol & drug abuse, etc. Living Fields ministers to this unreached community, many of whom continue to hang tightly to the hope of a better life.</p>
-          <p class="modal-p">I served as team leader for three mission teams to Living Fields to host VBS for the kids and to help with construction of their dormitory which is used to house disciples. We also participated in the water festival, the largest Southeast Asian festival on the East Coast, to raise awareness and spread the gospel.</p>
+          <p class="modal-p">I served as team leader for three mission teams to Living Fields to host VBS for the kids and to help with construction of their dormitory. We also participated in the water festival, the largest Southeast Asian festival on the East Coast, to raise awareness and spread the gospel.</p>
           <a href="https://www.egc.org/blog-2/2008/10/15/cambodian-ministries" target="_blank">From Killing Fields to Living Fields</a>
         </div>
       </div>
@@ -331,7 +395,6 @@
     <p>© Joon Lee, 2026</p>
   </footer>
 
-  <!-- Bootstrap JS (required for navbar collapse on mobile) -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src='main.js'></script>
