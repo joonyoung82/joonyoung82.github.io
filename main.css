@@ -10,6 +10,7 @@ body {
   font-family: 'Quattrocento Sans', sans-serif;
   margin: 0;
   color: #333;
+  background-color: #fff;
 }
 
 /* ============================================================
@@ -49,8 +50,8 @@ body {
 
 /* ============================================================
    HERO BACKGROUND DIV
-   Desktop: hidden — .intro handles its own background-image
-   Mobile:  fixed to viewport so it never expands on scroll
+   Desktop: hidden — .intro handles background-image directly
+   Mobile:  position:fixed so Chrome iOS toolbar never resizes it
    ============================================================ */
 .hero-bg {
   display: none;
@@ -66,8 +67,8 @@ body {
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  min-height: 100vh;                          /* desktop fallback */
-  min-height: calc(var(--vh, 1vh) * 100);     /* ✅ Chrome iOS fix */
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -159,8 +160,16 @@ body {
 /* ============================================================
    WORK EXPERIENCE  /  EDUCATION
    ============================================================ */
+#experience.jumbotron {
+  background-color: #f5f5f5;
+  margin-bottom: 0;
+  border-radius: 0;
+}
+
 #education.jumbotron {
   background-color: #fff;
+  margin-bottom: 0;
+  border-radius: 0;
 }
 
 .career {
@@ -378,6 +387,7 @@ h4.duration {
   padding: 50px 20px;
   text-align: center;
   margin-bottom: 0 !important;
+  border-radius: 0;
 }
 
 .contact {
@@ -404,7 +414,7 @@ h4.duration {
   width: 58px;
   height: 58px;
   border-radius: 50%;
-  border: 2px solid transparent;       /* reserves space — no layout shift */
+  border: 2px solid transparent;
   transition: border-color 0.25s;
 }
 
@@ -466,23 +476,50 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
 
-  /* ✅ Both html and body transparent so body-level hero-bg shows through */
-  html {
-    background-color: transparent;
-  }
-
   body {
-    background-color: transparent;
+    background-color: #fff;
   }
 
-  /* ✅ Strip background from .intro — hero-bg at body level takes over */
-  .intro {
-    background-image: none !important;
-    background-color: transparent !important;
-    background-attachment: scroll;
+  /* ✅ Kill Bootstrap's height animation — snaps to grid instantly,
+        no long list flash */
+  /* ✅ Kill Bootstrap's height animation */
+  .site-nav .navbar-collapse {
+    transition: none !important;
+    -webkit-transition: none !important;
   }
 
-  /* ✅ At body level — no stacking context interference */
+  /* ✅ Apply grid to BOTH .collapsing (first frame) AND .in (open state)
+        .collapsing is the single frame that was showing 5+1 before snapping */
+  .navbar-collapse.collapsing .navbar-nav.navbar-center,
+  .navbar-collapse.in .navbar-nav.navbar-center {
+    display: flex !important;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    margin: 0 !important;
+    padding: 4px 0;
+    float: none !important;
+  }
+
+  .navbar-collapse.collapsing .navbar-nav.navbar-center > li,
+  .navbar-collapse.in .navbar-nav.navbar-center > li {
+    flex: 0 0 33.333%;           /* ✅ exactly 3 per row from first frame */
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    float: none !important;
+  }
+
+  .navbar-collapse.collapsing .navbar-nav.navbar-center > li > a,
+  .navbar-collapse.in .navbar-nav.navbar-center > li > a {
+    text-align: center;
+    padding: 8px 4px;
+    font-size: 13px;
+    width: 100%;
+  }
+
+
+  /* ✅ hero-bg at z-index 0 — visible only behind transparent .intro */
   .hero-bg {
     display: block;
     position: fixed;
@@ -494,31 +531,57 @@ footer {
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
-    z-index: -1;
+    z-index: 0;
   }
 
-  /* ✅ Navbar 3+3 */
-  .navbar-collapse .navbar-nav.navbar-center {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 !important;
-    float: none !important;
-    padding: 4px 0;
+  /* ✅ .intro transparent so hero-bg shows through */
+  .intro {
+    background-image: none !important;
+    background-color: transparent !important;
+    background-attachment: scroll;
+    position: relative;
+    z-index: 1;
   }
 
-  .navbar-collapse .navbar-nav.navbar-center > li {
-    flex: 0 0 33.333%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    float: none !important;
+  /* ✅ All sections above hero-bg with solid bg colors */
+  #experience.jumbotron {
+    background-color: #f5f5f5 !important;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
   }
 
-  .navbar-collapse .navbar-nav.navbar-center > li > a {
-    text-align: center;
-    padding: 10px 4px;
-    font-size: 14px;
+  #education.jumbotron {
+    background-color: #fff !important;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 0 !important;
+    border-radius: 0 !important;
+  }
+
+  .skills {
+    position: relative;
+    z-index: 1;
+    background-color: #f5f5f5 !important;
+  }
+
+  .volunteer {
+    position: relative;
+    z-index: 1;
+    background-color: #fff !important;
+  }
+
+  .contactme {
+    position: relative;
+    z-index: 1;
+    background-color: #f5f5f5 !important;
+  }
+
+  footer {
+    position: relative;
+    z-index: 1;
+    background-color: #1a1a1a !important;
   }
 
   .introBlock h1 {
@@ -541,139 +604,7 @@ footer {
     display: none;
   }
 
-  .worklogo {
-    width: 96px !important;
-    height: 96px !important;
-    object-fit: contain;
-    border-radius: 22px;
-    margin: 0 auto 12px;
-  }
-
-  .row.work {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-wrap: nowrap;
-  }
-
-  .workdescription {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
-  }
-
-  .companyname {
-    font-size: 17px;
-  }
-
-  .location,
-  .htclocation {
-    font-size: 13px;
-  }
-
-  h4.title {
-    font-size: 13px;
-  }
-
-  h4.duration {
-    font-size: 12px;
-  }
-
-  .dicon {
-    width: 110px;
-    height: 110px;
-  }
-
-  .volunteerWork {
-    display: grid;
-    grid-template-columns: repeat(2, auto);
-    justify-content: center;
-    gap: 20px;
-  }
-
-  .vicon {
-    width: 104px !important;
-    height: 104px !important;
-    border-radius: 22px;
-  }
-
-  .contact {
-    gap: 24px;
-  }
-}
-@media (max-width: 768px) {
-
-  /* ✅ Transparent body — lets z-index: -1 hero-bg show through */
-  body {
-    background-color: transparent;
-  }
-
-  /* ✅ Strip background-image AND background-color from .intro */
-  .intro {
-    background-image: none !important;
-    background-color: transparent !important;
-    background-attachment: scroll;
-  }
-
-  /* ✅ Pinned to viewport — Chrome iOS toolbar hide/show cannot affect it */
-  .hero-bg {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('./picture/backgroundimage.jpg');
-    background-size: cover;
-    background-position: center;
-    background-attachment: scroll;
-    z-index: -1;
-  }
-
-  /* ✅ Navbar 3+3 */
-  .navbar-collapse .navbar-nav.navbar-center {
-    display: flex !important;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 !important;
-    float: none !important;
-    padding: 4px 0;
-  }
-
-  .navbar-collapse .navbar-nav.navbar-center > li {
-    flex: 0 0 33.333%;
-    display: flex !important;
-    justify-content: center;
-    align-items: center;
-    float: none !important;
-  }
-
-  .navbar-collapse .navbar-nav.navbar-center > li > a {
-    text-align: center;
-    padding: 10px 4px;
-    font-size: 14px;
-  }
-
-  .introBlock h1 {
-    font-size: 40px;
-  }
-
-  .introBlock p {
-    font-size: 16px;
-  }
-
-  .section-heading {
-    font-size: 2.4rem !important;
-  }
-
-  /* ✅ Responsive text variants */
-  .mobile-only {
-    display: inline;
-  }
-
-  .desktop-only {
-    display: none;
-  }
-
-  /* ✅ Fixed square — !important overrides Bootstrap col-sm-2 width */
+  /* ✅ Fixed square — !important overrides Bootstrap col-sm-2 */
   .worklogo {
     width: 96px !important;
     height: 96px !important;
@@ -686,7 +617,7 @@ footer {
   .row.work {
     margin-left: 0 !important;
     margin-right: 0 !important;
-    flex-wrap: nowrap;                 /* ✅ keeps title+date on one line */
+    flex-wrap: nowrap;
   }
 
   /* ✅ Equal padding on all description rows */
