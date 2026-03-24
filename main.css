@@ -13,10 +13,10 @@ body {
 }
 
 /* ============================================================
-   NAVBAR  —  half opaque
+   NAVBAR  —  75% opaque
    ============================================================ */
 .site-nav {
-  background-color: rgba(26, 26, 26, 0.5) !important;
+  background-color: rgba(26, 26, 26, 0.75) !important;
   border: none !important;
   border-radius: 0;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
@@ -51,8 +51,8 @@ body {
    HERO / INTRO
    ============================================================ */
 .intro {
-  background-image: url('./picture/background.jpg');  /* ← update filename if needed */
-  background-color: #222;                             /* fallback if image is missing */
+  background-image: url('./picture/background.jpg');
+  background-color: #222;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -106,17 +106,19 @@ body {
 }
 
 /* ============================================================
-   SECTION HEADINGS
+   SECTION HEADINGS  —  all same size across every section
    ============================================================ */
 .section-heading {
   text-align: center;
   font-family: 'EB Garamond', serif;
+  font-size: 2.2rem;       /* ✅ explicit size — overrides jumbotron vs div differences */
+  font-weight: 700;
   margin-bottom: 30px;
+  color: #222;
 }
 
 /* ============================================================
-   WORK EXPERIENCE  (default gray from Bootstrap jumbotron)
-   EDUCATION        (white background)
+   WORK EXPERIENCE  /  EDUCATION
    ============================================================ */
 #education.jumbotron {
   background-color: #fff;
@@ -126,21 +128,22 @@ body {
   padding: 10px 0 30px;
 }
 
-/* ✅ Larger rounded logos on desktop */
+/* ✅ Fixed square container — border-radius looks perfectly even on all images */
 .worklogo {
   display: block;
-  max-width: 160px;
-  width: 100%;
-  height: auto;
-  border-radius: 20px;
+  width: 160px;
+  height: 160px;
+  object-fit: contain;       /* keeps logo proportions inside the square */
+  border-radius: 24px;       /* even on all 4 corners since width == height */
   margin-top: 8px;
+  background-color: transparent;
 }
 
 .workdescription {
   padding: 8px 0;
 }
 
-/* ✅ space-between pushes name left, location right */
+/* space-between pushes name/title left, location/date right */
 .row.work {
   display: flex;
   align-items: baseline;
@@ -176,10 +179,10 @@ h4.title {
   text-align: left;
 }
 
-/* ── Right-aligned ── */
+/* ── Right-aligned — slightly bigger font ── */
 .location,
 .htclocation {
-  font-size: 15px;
+  font-size: 18px;           /* ✅ up from 15px */
   color: #777;
   margin: 0;
   font-family: 'Quattrocento Sans', sans-serif;
@@ -190,7 +193,7 @@ h4.title {
 }
 
 h4.duration {
-  font-size: 14px;
+  font-size: 15px;           /* ✅ up from 14px */
   color: #999;
   margin: 4px 0;
   font-weight: 400;
@@ -228,16 +231,17 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Bigger icons */
+/* ✅ Slightly bigger than before */
 .dicon {
-  width: 100px;
-  height: 100px;
+  width: 116px;
+  height: 116px;
   transition: transform 0.2s;
   cursor: default;
+  border-radius: 20px;
 }
 
 .dicon:hover {
-  transform: scale(1.12);
+  transform: scale(1.1);
 }
 
 /* ============================================================
@@ -257,12 +261,13 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Bigger volunteer icons with rounded corners */
+/* ✅ Fixed square so border-radius is perfectly even */
 .vicon {
   width: 100px;
   height: 100px;
+  object-fit: contain;
   cursor: pointer;
-  border-radius: 20px;
+  border-radius: 24px;
   transition: transform 0.2s;
 }
 
@@ -331,16 +336,13 @@ h4.duration {
 /* ============================================================
    CONTACT
    ============================================================ */
-
-/* ✅ Remove gap between contact section and footer */
 .contactme {
   background-color: #f5f5f5;
-  padding: 50px 20px 50px;
+  padding: 50px 20px;
   text-align: center;
-  margin-bottom: 0 !important;   /* override Bootstrap jumbotron margin */
+  margin-bottom: 0 !important;
 }
 
-/* ✅ Icon row — below the heading */
 .contact {
   display: flex;
   flex-direction: row;
@@ -351,7 +353,6 @@ h4.duration {
   padding: 10px 0 0;
 }
 
-/* ✅ Each link: icon on top, label underneath */
 .contact .img {
   display: flex;
   flex-direction: column;
@@ -372,7 +373,6 @@ h4.duration {
   display: block;
 }
 
-/* ✅ Label sits below icon */
 .contact-label {
   font-size: 13px;
   color: #666;
@@ -381,7 +381,7 @@ h4.duration {
 }
 
 /* ============================================================
-   FOOTER  —  flush against contact section
+   FOOTER  —  flush against contact section, no gap
    ============================================================ */
 footer {
   background-color: #1a1a1a;
@@ -398,12 +398,10 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
 
-  /* Disable fixed background — broken on iOS Safari */
   .intro {
     background-attachment: scroll;
   }
 
-  /* ── Hero text ── */
   .introBlock h1 {
     font-size: 40px;
   }
@@ -412,43 +410,47 @@ footer {
     font-size: 16px;
   }
 
-  /* ── Work / Education logos — smaller & centered ── */
+  /* ── Logos smaller on mobile, still square for even corners ── */
   .worklogo {
-    max-width: 80px;
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
     margin: 0 auto 12px;
   }
 
-  /* ── Left-edge breathing room for description text ── */
   .workdescription {
     padding-left: 16px !important;
     padding-right: 8px;
   }
 
-  /* ── Allow location/date to wrap on small screens ── */
   .row.work {
     flex-wrap: wrap;
   }
 
-  /* ── Skill icons — smaller ── */
-  .dicon {
-    width: 72px;
-    height: 72px;
+  /* ── Location slightly smaller on very small screens ── */
+  .location,
+  .htclocation {
+    font-size: 15px;
   }
 
-  /* ── Volunteer icons — smaller ── */
+  /* ✅ Dev icons — bigger than before on mobile too */
+  .dicon {
+    width: 84px;
+    height: 84px;
+  }
+
   .vicon {
     width: 72px;
     height: 72px;
+    border-radius: 16px;
   }
 
-  /* ── Keep icon grids centered ── */
   .development,
   .volunteerWork {
     justify-content: center;
     gap: 16px;
   }
 
-  /* ── Contact icons stay horizontal & centered ── */
   .contact {
     gap: 24px;
   }
