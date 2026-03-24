@@ -366,32 +366,56 @@ h4.duration {
   padding: 10px 0 0;
 }
 
+/* ✅ Each link — no gap since label is now an overlay */
 .contact .img {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-decoration: none !important;
   color: #333;
-  transition: transform 0.2s;
-  gap: 8px;
 }
 
-.contact .img:hover {
-  transform: scale(1.08);
+/* ✅ Wrapper that positions overlay on top of icon */
+.icon-wrap {
+  position: relative;
+  width: 58px;
+  height: 58px;
 }
 
-.contact .img img {
+.icon-wrap img {
   width: 58px;
   height: 58px;
   display: block;
+  border-radius: 8px;
+  transition: opacity 0.25s;
 }
 
-.contact-label {
-  font-size: 13px;
-  color: #666;
-  text-align: center;
-  font-family: 'Quattrocento Sans', sans-serif;
+/* ✅ Dim the icon slightly on hover so label pops */
+.contact .img:hover .icon-wrap img {
+  opacity: 0.35;
 }
+
+/* ✅ Label overlay — centered over icon, hidden by default */
+.contact-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #333;
+  font-family: 'Quattrocento Sans', sans-serif;
+  opacity: 0;                          /* hidden */
+  transition: opacity 0.25s;
+  pointer-events: none;                /* don't block the link click */
+}
+
+/* ✅ Fade label in on hover */
+.contact .img:hover .contact-label {
+  opacity: 1;
+}
+
 
 /* ============================================================
    FOOTER
