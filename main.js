@@ -1,6 +1,5 @@
 // ============================================================
-// FIX: Chrome on iOS dynamically changes 100vh as address
-// bar hides/shows — capture real height and lock it as --vh
+// FIX: Chrome on iOS dynamically changes 100vh
 // ============================================================
 function setVH() {
   let vh = window.innerHeight * 0.01;
@@ -9,57 +8,39 @@ function setVH() {
 setVH();
 window.addEventListener('resize', setVH);
 
+// ============================================================
+// VOLUNTEER MODALS — using jQuery (already loaded by Bootstrap)
+// ============================================================
+$(document).ready(function() {
 
+  // ✅ Open modal when volunteer icon clicked
+  $('.modal-trigger').on('click', function() {
+    var modalId = $(this).data('modal');
+    $('#' + modalId).fadeIn(200);
+    $('body').css('overflow', 'hidden');
+  });
 
-var modalLF = document.getElementById('myModalLF');
-var btnLF = document.getElementById("myBtnLF");
-var spanLF = document.getElementsByClassName("closeLF")[0];
-btnLF.onclick = function() {
-    modalLF.style.display = "block";
-}
-spanLF.onclick = function() {
-    modalLF.style.display = "none";
-}
+  // ✅ Close modal when X clicked
+  $('.modal-close').on('click', function() {
+    var modalId = $(this).data('modal');
+    $('#' + modalId).fadeOut(200);
+    $('body').css('overflow', '');
+  });
 
-
-var modalC = document.getElementById('myModalC');
-var btnC = document.getElementById("myBtnC");
-var spanC = document.getElementsByClassName("closeC")[0];
-btnC.onclick = function() {
-    modalC.style.display = "block";
-}
-spanC.onclick = function() {
-    modalC.style.display = "none";
-}
-
-
-var modalK = document.getElementById('myModalK');
-var btnK = document.getElementById("myBtnK");
-var spanK = document.getElementsByClassName("closeK")[0];
-btnK.onclick = function() {
-    modalK.style.display = "block";
-}
-spanK.onclick = function() {
-    modalK.style.display = "none";
-}
-
-
-var modalMH = document.getElementById('myModalMH');
-var btnMH = document.getElementById("myBtnMH");
-var spanMH = document.getElementsByClassName("closeMH")[0];
-btnMH.onclick = function() {
-    modalMH.style.display = "block";
-}
-spanMH.onclick = function() {
-    modalMH.style.display = "none";
-}
-
-window.onclick = function(event) {
-    if (event.target == modalLF || event.target == modalC || event.target == modalMH || event.target == modalK) {
-        modalLF.style.display = "none";
-        modalC.style.display = "none";
-        modalMH.style.display = "none";
-        modalK.style.display = "none";
+  // ✅ Close modal when clicking dark overlay
+  $('.custom-modal').on('click', function(e) {
+    if ($(e.target).hasClass('custom-modal')) {
+      $(this).fadeOut(200);
+      $('body').css('overflow', '');
     }
-}
+  });
 
+  // ✅ Close modal on Escape key
+  $(document).on('keydown', function(e) {
+    if (e.key === 'Escape') {
+      $('.custom-modal').fadeOut(200);
+      $('body').css('overflow', '');
+    }
+  });
+
+});

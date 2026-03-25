@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- Google Analytics GA4 — replace G-XXXXXXXXXX with your real GA4 ID -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XS94VYF0DM"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
+    gtag('config', 'G-XS94VYF0DM');
   </script>
 
   <title>Joon Lee | Senior QA Engineer</title>
@@ -28,34 +28,37 @@
 </head>
 <body>
 
-   <div class="hero-bg"></div>   <!-- ✅ moved to body level, outside .intro -->
+  <div class="hero-bg"></div>
 
-  <!-- NAVBAR -->
+  <!-- ============================================================ -->
+  <!-- NAVBAR                                                       -->
+  <!-- ============================================================ -->
   <nav class="navbar navbar-fixed-top site-nav">
-  <div class="container">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu" aria-expanded="false">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu" aria-expanded="false">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
+      <div class="collapse navbar-collapse" id="navbarMenu">
+        <ul class="nav navbar-nav navbar-center">
+          <li><a href="#intro">Home</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#volunteer">Volunteer</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="collapse navbar-collapse" id="navbarMenu">
-      <ul class="nav navbar-nav navbar-center">
-        <li><a href="#intro">Home</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#education">Education</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#volunteer">Volunteer</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  </nav>
 
-  <!-- HERO -->
+  <!-- ============================================================ -->
+  <!-- HERO / INTRO                                                 -->
+  <!-- ============================================================ -->
   <div class="intro" id="intro">
-    <!-- no hero-bg here anymore -->
     <div class="introBlock">
       <h1>Joon Lee</h1>
       <p>Senior QA Engineer @ Apple · 15+ years shipping mobile apps used by millions</p>
@@ -96,7 +99,7 @@
         <div class="col"></div>
       </div>
 
-      <!-- Meta (formerly Facebook) -->
+      <!-- Meta -->
       <div class="row text-left">
         <div class="col-sm-1"></div>
         <a href="https://www.meta.com/" target="_blank">
@@ -131,7 +134,6 @@
             <h3 class="location htclocation">Bedminster, NJ</h3>
           </div>
           <div class="row work">
-            <!-- ✅ Shortened title so date stays on the same line on mobile -->
             <h4 class="title">Principal Software QA Engineer</h4>
             <h4 class="duration">May 2011 - Feb 2018</h4>
           </div>
@@ -170,7 +172,7 @@
   </section>
 
   <!-- ============================================================ -->
-  <!-- EDUCATION  (white background)                               -->
+  <!-- EDUCATION                                                    -->
   <!-- ============================================================ -->
   <section class="jumbotron" id="education">
     <h1 class="section-heading">Education</h1>
@@ -250,10 +252,11 @@
     <div class="volunteerWork">
 
       <!-- Mango House -->
-      <img src="./picture/mangohouse128blank.png" alt="Mango House" class="vicon modal-trigger" title="Mango House" data-modal="myModalMH">
-      <div id="myModalMH" class="modal">
+      <img src="./picture/mangohouse128blank.png" alt="Mango House" class="vicon" title="Mango House"
+           onclick="openModal('myModalMH')" style="cursor:pointer;">
+      <div id="myModalMH" class="custom-modal">
         <div class="modal-content">
-          <span class="modal-close" data-modal="myModalMH">&times;</span>
+          <span class="modal-close" onclick="closeModal('myModalMH')">&times;</span>
           <a href="http://www.elijahfoundation.org/whatwedo/mangos.html" target="_blank" class="modal-img">
             <img src="./picture/mangolong1600.jpg" class="img-responsive volunteer-img">
           </a>
@@ -264,10 +267,11 @@
       </div>
 
       <!-- Living Fields -->
-      <img src="./picture/livingfields128.png" alt="Living Fields" class="vicon modal-trigger" title="Living Fields" data-modal="myModalLF">
-      <div id="myModalLF" class="modal">
+      <img src="./picture/livingfields128.png" alt="Living Fields" class="vicon" title="Living Fields"
+           onclick="openModal('myModalLF')" style="cursor:pointer;">
+      <div id="myModalLF" class="custom-modal">
         <div class="modal-content">
-          <span class="modal-close" data-modal="myModalLF">&times;</span>
+          <span class="modal-close" onclick="closeModal('myModalLF')">&times;</span>
           <a href="http://www.livingfields.org/#/home" target="_blank" class="modal-img">
             <img src="./picture/mainLivingfields1600.jpg" class="img-responsive volunteer-img">
           </a>
@@ -278,10 +282,11 @@
       </div>
 
       <!-- KCCC -->
-      <img src="./picture/kccc128.png" alt="KCCC" class="vicon modal-trigger" title="KCCC" data-modal="myModalK">
-      <div id="myModalK" class="modal">
+      <img src="./picture/kccc128.png" alt="KCCC" class="vicon" title="KCCC"
+           onclick="openModal('myModalK')" style="cursor:pointer;">
+      <div id="myModalK" class="custom-modal">
         <div class="modal-content">
-          <span class="modal-close" data-modal="myModalK">&times;</span>
+          <span class="modal-close" onclick="closeModal('myModalK')">&times;</span>
           <a href="https://www.gcx.org/kcccusa/" target="_blank" class="modal-img">
             <img src="./picture/kccc1600.png" class="img-responsive volunteer-img">
           </a>
@@ -291,10 +296,11 @@
       </div>
 
       <!-- Compassion -->
-      <img src="./picture/compassion128.jpg" alt="Compassion" class="vicon modal-trigger" title="Compassion" data-modal="myModalC">
-      <div id="myModalC" class="modal">
+      <img src="./picture/compassion128.jpg" alt="Compassion" class="vicon" title="Compassion"
+           onclick="openModal('myModalC')" style="cursor:pointer;">
+      <div id="myModalC" class="custom-modal">
         <div class="modal-content">
-          <span class="modal-close" data-modal="myModalC">&times;</span>
+          <span class="modal-close" onclick="closeModal('myModalC')">&times;</span>
           <a href="https://www.compassion.com/" target="_blank" class="modal-img">
             <img src="./picture/compassion1600.jpg" class="img-responsive volunteer-img">
           </a>
@@ -306,48 +312,76 @@
     </div>
   </div>
 
-<!-- ============================================================ -->
-<!-- CONTACT                                                      -->
-<!-- ============================================================ -->
-<section class="jumbotron contactme" id="contact">
-  <h1 class="section-heading">Contact Me</h1>
-  <div class="contact">
+  <!-- ============================================================ -->
+  <!-- CONTACT                                                      -->
+  <!-- ============================================================ -->
+  <section class="jumbotron contactme" id="contact">
+    <h1 class="section-heading">Contact Me</h1>
+    <div class="contact">
 
-    <a class="img" href="mailto:joonyoung82@gmail.com?Subject=Hello%20Joon" target="_top">
-      <div class="icon-wrap">
-        <img src="./picture/email58.png" alt="Email"/>
-        <span class="contact-label">Email</span>
-      </div>
-    </a>
+      <a class="img" href="mailto:joonyoung82@gmail.com?Subject=Hello%20Joon" target="_top">
+        <div class="icon-wrap">
+          <img src="./picture/email58.png" alt="Email"/>
+          <span class="contact-label">Email</span>
+        </div>
+      </a>
 
-    <a class="img" href="./picture/Resume.pdf" download>
-      <div class="icon-wrap">
-        <img src="./picture/resume58.png" alt="Resume"/>
-        <span class="contact-label">Resume</span>
-      </div>
-    </a>
+      <a class="img" href="./picture/Resume.pdf" download>
+        <div class="icon-wrap">
+          <img src="./picture/resume58.png" alt="Resume"/>
+          <span class="contact-label">Resume</span>
+        </div>
+      </a>
 
-    <a class="img" href="https://www.linkedin.com/in/joonyoung82/" target="_blank">
-      <div class="icon-wrap">
-        <img src="./picture/linkedin58.png" alt="LinkedIn"/>
-        <span class="contact-label">LinkedIn</span>
-      </div>
-    </a>
+      <a class="img" href="https://www.linkedin.com/in/joonyoung82/" target="_blank">
+        <div class="icon-wrap">
+          <img src="./picture/linkedin58.png" alt="LinkedIn"/>
+          <span class="contact-label">LinkedIn</span>
+        </div>
+      </a>
 
-    <a class="img" href="https://github.com/joonyoung82" target="_blank">
-      <div class="icon-wrap">
-        <img src="./picture/github58.png" alt="GitHub"/>
-        <span class="contact-label">GitHub</span>
-      </div>
-    </a>
+      <a class="img" href="https://github.com/joonyoung82" target="_blank">
+        <div class="icon-wrap">
+          <img src="./picture/github58.png" alt="GitHub"/>
+          <span class="contact-label">GitHub</span>
+        </div>
+      </a>
 
-  </div>
-</section>
-
+    </div>
+  </section>
 
   <footer>
     <p>© Joon Lee, 2026</p>
   </footer>
+
+  <!-- ✅ Modal functions inline — guaranteed to load with the page -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).style.display = 'block';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeModal(id) {
+      document.getElementById(id).style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    window.addEventListener('click', function(e) {
+      if (e.target.classList.contains('custom-modal')) {
+        e.target.style.display = 'none';
+        document.body.style.overflow = '';
+      }
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-modal').forEach(function(m) {
+          m.style.display = 'none';
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
