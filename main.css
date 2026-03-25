@@ -325,7 +325,7 @@ h4.duration {
    MODALS
    ============================================================ */
 .custom-modal {
-  display: none;
+  display: none !important;        /* ✅ !important prevents grid/flex override */
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -335,6 +335,7 @@ h4.duration {
   overflow-y: auto;
   background-color: rgba(0, 0, 0, 0.72);
 }
+
 
 .modal-content {
   background-color: #fff;
