@@ -355,33 +355,34 @@
   </footer>
 
   <!-- ✅ Modal functions inline — guaranteed to load with the page -->
-  <script>
-    function openModal(id) {
-      document.getElementById(id).style.display = 'block';
-      document.body.style.overflow = 'hidden';
-    }
+<script>
+  function openModal(id) {
+    document.getElementById(id).classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
 
-    function closeModal(id) {
-      document.getElementById(id).style.display = 'none';
+  function closeModal(id) {
+    document.getElementById(id).classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  window.addEventListener('click', function(e) {
+    if (e.target.classList.contains('custom-modal')) {
+      e.target.classList.remove('is-open');
       document.body.style.overflow = '';
     }
+  });
 
-    window.addEventListener('click', function(e) {
-      if (e.target.classList.contains('custom-modal')) {
-        e.target.style.display = 'none';
-        document.body.style.overflow = '';
-      }
-    });
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape') {
+      document.querySelectorAll('.custom-modal.is-open').forEach(function(m) {
+        m.classList.remove('is-open');
+      });
+      document.body.style.overflow = '';
+    }
+  });
+</script>
 
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') {
-        document.querySelectorAll('.custom-modal').forEach(function(m) {
-          m.style.display = 'none';
-        });
-        document.body.style.overflow = '';
-      }
-    });
-  </script>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
