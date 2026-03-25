@@ -419,8 +419,8 @@ h4.duration {
 /* ✅ Circle container — same size as icon */
 .icon-wrap {
   position: relative;
-  width: 58px;
-  height: 58px;
+  width: 70px;
+  height: 70px;
   border-radius: 50%;
   border: 2px solid transparent;
   transition: border-color 0.25s;
