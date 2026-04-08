@@ -1,60 +1,237 @@
 /* ============================================================
-   BASE
+   CSS CUSTOM PROPERTIES
+   ============================================================ */
+:root {
+  /* Layout */
+  --nav-height: 50px;
+  --max-width: 1140px;
+  --section-padding: 60px 24px;
+
+  /* Light palette */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f5f5;
+  --bg-nav: rgba(26, 26, 26, 0.75);
+  --bg-footer: #1a1a1a;
+  --text-primary: #222;
+  --text-body: #333;
+  --text-muted: #555;
+  --text-subtle: #777;
+  --text-faint: #999;
+  --text-nav: #ccc;
+  --text-nav-hover: #fff;
+  --border-light: #e4e4e4;
+  --modal-overlay: rgba(0, 0, 0, 0.72);
+  --modal-bg: #ffffff;
+  --hero-overlay: rgba(0, 0, 0, 0.45);
+
+  /* Typography */
+  --font-serif: 'EB Garamond', serif;
+  --font-sans: 'Quattrocento Sans', sans-serif;
+
+  /* iOS vh fix (set by JS) */
+  --vh: 1vh;
+}
+
+/* ============================================================
+   DARK MODE
+   ============================================================ */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-nav: rgba(10, 10, 10, 0.85);
+  --bg-footer: #111;
+  --text-primary: #e8e8e8;
+  --text-body: #d4d4d4;
+  --text-muted: #aaa;
+  --text-subtle: #888;
+  --text-faint: #666;
+  --border-light: #3a3a3a;
+  --modal-bg: #2a2a2a;
+  --hero-overlay: rgba(0, 0, 0, 0.55);
+}
+
+[data-theme="dark"] .worklogo,
+[data-theme="dark"] .timeline-logo {
+  background-color: #2a2a2a;
+}
+
+[data-theme="dark"] .cta-btn {
+  background-color: transparent;
+  color: #fff !important;
+  border-color: #fff;
+}
+
+[data-theme="dark"] .cta-btn:hover {
+  background-color: #fff;
+  color: #111 !important;
+}
+
+[data-theme="dark"] img:not(.hero-video) {
+  filter: brightness(0.92);
+}
+
+.icon-dark {
+  display: none;
+}
+
+[data-theme="dark"] .icon-light {
+  display: none;
+}
+
+[data-theme="dark"] .icon-dark {
+  display: block;
+}
+
+/* ============================================================
+   RESET
    ============================================================ */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  padding-top: 50px;
-  font-family: 'Quattrocento Sans', sans-serif;
   margin: 0;
-  color: #333;
-  background-color: #fff;
+  padding-top: var(--nav-height);
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  background-color: var(--bg-primary);
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+:target {
+  scroll-margin-top: calc(var(--nav-height) + 16px);
 }
 
 /* ============================================================
-   NAVBAR  —  75% opaque
+   NAVBAR
    ============================================================ */
 .site-nav {
-  background-color: rgba(26, 26, 26, 0.75) !important;
-  border: none !important;
-  border-radius: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: var(--bg-nav);
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
 }
 
-.site-nav .navbar-toggle .icon-bar {
-  background-color: #fff;
+.nav-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: var(--nav-height);
+  padding: 0 16px;
+  position: relative;
 }
 
-.site-nav .nav > li > a {
-  color: #ccc;
-  font-family: 'Quattrocento Sans', sans-serif;
+.theme-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 6px;
+  position: absolute;
+  left: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 1;
+  transition: transform 0.3s;
+}
+
+.theme-toggle:hover {
+  transform: translateY(-50%) rotate(20deg);
+}
+
+.nav-toggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.nav-toggle .icon-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background-color: #fff;
+  margin: 5px 0;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.nav-links {
+  display: flex;
+  gap: 4px;
+}
+
+.nav-links a {
+  color: var(--text-nav);
+  padding: 14px 16px;
+  display: block;
+  font-family: var(--font-sans);
   transition: color 0.2s;
 }
 
-.site-nav .nav > li > a:hover {
-  color: #fff;
-  background-color: transparent;
-}
-
-.navbar-nav.navbar-center {
-  float: none !important;
-  text-align: center;
-}
-
-.navbar-nav.navbar-center > li {
-  float: none !important;
-  display: inline-block;
+.nav-links a:hover {
+  color: var(--text-nav-hover);
 }
 
 /* ============================================================
-   HERO BACKGROUND DIV
-   Desktop: hidden — .intro handles background-image directly
-   Mobile:  position:fixed so Chrome iOS toolbar never resizes it
+   HERO BACKGROUND DIV (mobile fallback)
    ============================================================ */
 .hero-bg {
   display: none;
+}
+
+/* ============================================================
+   HERO VIDEO BACKGROUND
+   ============================================================ */
+.hero-video {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+  z-index: -2;
 }
 
 /* ============================================================
@@ -62,11 +239,7 @@ body {
    ============================================================ */
 .intro {
   position: relative;
-  background-image: url('./picture/backgroundimage.jpg');
-  background-color: #222;
-  background-size: cover;
-  background-position: center;
-  background-attachment: fixed;
+  background: transparent;
   min-height: 100vh;
   min-height: calc(var(--vh, 1vh) * 100);
   display: flex;
@@ -76,16 +249,14 @@ body {
   color: #fff;
 }
 
-/* ✅ Dark overlay — sits on top of background photo, behind text */
 .intro::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.45);
+  background-color: var(--hero-overlay);
   z-index: 0;
 }
 
-/* ✅ Keep text above the overlay */
 .introBlock {
   position: relative;
   z-index: 1;
@@ -93,7 +264,7 @@ body {
 }
 
 .introBlock h1 {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-serif);
   font-size: 64px;
   font-weight: 700;
   color: #fff;
@@ -119,7 +290,7 @@ body {
   color: #111 !important;
   border: 2px solid #fff;
   border-radius: 4px;
-  font-family: 'Quattrocento Sans', sans-serif;
+  font-family: var(--font-sans);
   font-size: 16px;
   font-weight: 600;
   text-decoration: none;
@@ -130,20 +301,41 @@ body {
   background-color: transparent;
   color: #fff !important;
   border-color: #fff;
-  text-decoration: none;
+}
+
+/* ============================================================
+   CONTENT WRAP — solid background to block fixed video
+   ============================================================ */
+.content-wrap {
+  position: relative;
+  z-index: 1;
+  background-color: var(--bg-primary);
+}
+
+/* ============================================================
+   SECTIONS
+   ============================================================ */
+.section {
+  padding: var(--section-padding);
+  background-color: var(--bg-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.section--alt {
+  background-color: var(--bg-secondary);
 }
 
 /* ============================================================
    SECTION HEADINGS
-   ✅ !important beats Bootstrap's .jumbotron h1 { font-size: 63px }
    ============================================================ */
 .section-heading {
   text-align: center;
-  font-family: 'EB Garamond', serif;
-  font-size: 3.4rem !important;
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
   font-weight: 700;
   margin-bottom: 30px;
-  color: #222;
+  color: var(--text-primary);
 }
 
 /* ============================================================
@@ -158,55 +350,116 @@ body {
 }
 
 /* ============================================================
-   WORK EXPERIENCE  /  EDUCATION
+   BY THE NUMBERS / STATS
    ============================================================ */
-#experience.jumbotron {
-  background-color: #f5f5f5;
-  margin-bottom: 0;
-  border-radius: 0;
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 20px 24px;
 }
 
-#education.jumbotron {
-  background-color: #fff;
-  margin-bottom: 0;
-  border-radius: 0;
+.stat-card {
+  text-align: center;
+  padding: 24px 16px;
 }
 
-.career {
-  padding: 10px 0 30px;
-}
-
-/* ✅ Fixed square — border-radius perfectly even on all images */
-.worklogo {
+.stat-number {
   display: block;
-  width: 160px;
-  height: 160px;
-  object-fit: contain;
-  border-radius: 24px;
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.1;
+}
+
+.stat-label {
+  display: block;
+  font-size: 17px;
+  color: var(--text-muted);
   margin-top: 8px;
-  background-color: transparent;
+  line-height: 1.4;
 }
 
-.workdescription {
-  padding: 8px 0;
+.stat-context {
+  display: block;
+  font-size: 15px;
+  color: var(--text-faint);
+  margin-top: 4px;
+  font-style: italic;
 }
 
-.row.work {
+/* ============================================================
+   CAREER TIMELINE
+   ============================================================ */
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0 20px 48px;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background-color: var(--border-light);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.timeline-item:last-child {
+  margin-bottom: 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: -36px;
+  top: 8px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background-color: var(--text-primary);
+  border: 3px solid var(--bg-secondary);
+}
+
+/* Education section uses --bg-primary background */
+.section:not(.section--alt) .timeline-dot {
+  border-color: var(--bg-primary);
+}
+
+.timeline-header {
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: nowrap;
-  margin-bottom: 4px;
-  gap: 8px;
+  align-items: center;
+  gap: 16px;
 }
 
-/* ── Left-aligned ── */
+.timeline-logo {
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  border-radius: 14px;
+  flex-shrink: 0;
+}
+
+.timeline-meta {
+  display: flex;
+  flex-direction: column;
+}
+
 .companyname {
-  font-family: 'EB Garamond', serif;
+  font-family: var(--font-serif);
   font-size: 22px;
   font-weight: 700;
-  margin: 0 0 2px;
-  text-align: left;
+  color: var(--text-primary);
 }
 
 .companyname a {
@@ -218,85 +471,109 @@ body {
   text-decoration: underline;
 }
 
-h4.title {
-  font-size: 16px;
+.timeline-role {
+  font-size: 17px;
   font-weight: 600;
-  color: #333;
-  margin: 4px 0;
-  text-align: left;
+  color: var(--text-body);
+  margin-top: 2px;
 }
 
-/* ── Right-aligned ── */
-.location,
-.htclocation {
-  font-size: 18px;
-  color: #777;
-  margin: 0;
-  font-family: 'Quattrocento Sans', sans-serif;
-  font-weight: 400;
-  text-align: right;
-  white-space: nowrap;
-  margin-left: auto;
-}
-
-h4.duration {
+.timeline-date {
   font-size: 15px;
-  color: #999;
-  margin: 4px 0;
-  font-weight: 400;
-  text-align: right;
-  white-space: nowrap;
-  margin-left: auto;
+  color: var(--text-faint);
+  margin-top: 2px;
+}
+
+.timeline-details {
+  margin-top: 12px;
+}
+
+.timeline-expand {
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--text-subtle);
+  font-family: var(--font-sans);
+  list-style: none;
+  user-select: none;
+}
+
+.timeline-expand::-webkit-details-marker {
+  display: none;
+}
+
+.timeline-expand::before {
+  content: '+ ';
+  font-weight: 700;
+}
+
+.timeline-details[open] .timeline-expand::before {
+  content: '− ';
 }
 
 .work-p {
-  color: #555;
+  color: var(--text-muted);
   line-height: 1.75;
   margin-top: 8px;
-  font-size: 15px;
-}
-
-.workEnd {
-  border-bottom: 1px solid #e4e4e4;
-  margin: 24px 0 8px;
+  font-size: 17px;
 }
 
 /* ============================================================
    SKILLS / DEVELOPMENT CAPABILITIES
    ============================================================ */
-.skills {
-  padding: 50px 20px;
-  text-align: center;
-  background-color: #f5f5f5;
-}
-
-.development {
+.skills-container {
+  max-width: 720px;
+  margin: 0 auto;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.skill-group {
+  text-align: center;
+}
+
+.skill-category {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.skill-pills {
+  display: flex;
   flex-wrap: wrap;
-  gap: 24px;
-  padding: 20px 0;
+  justify-content: center;
+  gap: 10px;
 }
 
-.dicon {
-  width: 116px;
-  height: 116px;
-  transition: transform 0.2s;
+.pill {
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 999px;
+  border: 1.5px solid var(--border-light);
+  background-color: var(--bg-primary);
+  color: var(--text-body);
+  font-size: 14px;
+  font-family: var(--font-sans);
+  transition: transform 0.2s, border-color 0.2s, background-color 0.2s;
   cursor: default;
-  border-radius: 20px;
 }
 
-.dicon:hover {
-  transform: scale(1.1);
+.pill:hover {
+  transform: translateY(-2px);
+  border-color: var(--text-subtle);
+}
+
+[data-theme="dark"] .pill {
+  background-color: var(--bg-secondary);
 }
 
 /* ============================================================
    VOLUNTEER
    ============================================================ */
-.volunteer {
-  padding: 50px 20px;
+.volunteer-section {
   text-align: center;
-  background-color: #fff;
 }
 
 .volunteerWork {
@@ -307,7 +584,6 @@ h4.duration {
   padding: 20px 0;
 }
 
-/* ✅ Fixed square for even border-radius */
 .vicon {
   width: 100px;
   height: 100px;
@@ -325,7 +601,7 @@ h4.duration {
    MODALS
    ============================================================ */
 .custom-modal {
-  display: none;                   /* ✅ no !important — JS can override */
+  display: none;
   position: fixed;
   z-index: 9999;
   left: 0;
@@ -333,24 +609,25 @@ h4.duration {
   width: 100%;
   height: 100%;
   overflow-y: auto;
-  background-color: rgba(0, 0, 0, 0.72);
+  background-color: var(--modal-overlay);
 }
 
-/* ✅ JS adds/removes this class to show/hide */
 .custom-modal.is-open {
-  display: block !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
-
 
 .modal-content {
-  background-color: #fff;
-  margin: 6% auto;
+  background-color: var(--modal-bg);
   padding: 30px 28px;
   width: 92%;
-  max-width: 680px;
+  max-width: 780px;
+  max-height: 90vh;
+  overflow-y: auto;
   border-radius: 10px;
   position: relative;
+  color: var(--text-body);
 }
 
 .modal-close {
@@ -360,12 +637,12 @@ h4.duration {
   font-size: 28px;
   font-weight: bold;
   cursor: pointer;
-  color: #888;
+  color: var(--text-subtle);
   line-height: 1;
 }
 
 .modal-close:hover {
-  color: #111;
+  color: var(--text-primary);
 }
 
 .volunteer-img {
@@ -375,7 +652,7 @@ h4.duration {
 }
 
 .modal-p {
-  color: #444;
+  color: var(--text-muted);
   line-height: 1.75;
   margin-bottom: 12px;
   font-size: 15px;
@@ -386,18 +663,19 @@ h4.duration {
   margin-bottom: 4px;
 }
 
+.modal-link {
+  color: var(--text-subtle);
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+
+.modal-link:hover {
+  color: var(--text-primary);
+}
 
 /* ============================================================
    CONTACT
    ============================================================ */
-.contactme {
-  background-color: #f5f5f5;
-  padding: 50px 20px;
-  text-align: center;
-  margin-bottom: 0 !important;
-  border-radius: 0;
-}
-
 .contact {
   display: flex;
   flex-direction: row;
@@ -412,11 +690,10 @@ h4.duration {
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-decoration: none !important;
-  color: #333;
+  text-decoration: none;
+  color: var(--text-body);
 }
 
-/* ✅ Circle container — same size as icon */
 .icon-wrap {
   position: relative;
   width: 70px;
@@ -426,9 +703,8 @@ h4.duration {
   transition: border-color 0.25s;
 }
 
-/* ✅ Circle outline appears on hover */
 .contact .img:hover .icon-wrap {
-  border-color: #333;
+  border-color: var(--text-body);
 }
 
 .icon-wrap img {
@@ -440,12 +716,10 @@ h4.duration {
   transition: opacity 0.25s;
 }
 
-/* ✅ Icon fades out on hover */
 .contact .img:hover .icon-wrap img {
   opacity: 0;
 }
 
-/* ✅ Label — centered over icon, hidden by default */
 .contact-label {
   position: absolute;
   inset: 0;
@@ -454,14 +728,13 @@ h4.duration {
   justify-content: center;
   font-size: 11px;
   font-weight: 600;
-  color: #333;
-  font-family: 'Quattrocento Sans', sans-serif;
+  color: var(--text-body);
+  font-family: var(--font-sans);
   opacity: 0;
   transition: opacity 0.25s;
   pointer-events: none;
 }
 
-/* ✅ Label fades in on hover */
 .contact .img:hover .contact-label {
   opacity: 1;
 }
@@ -470,13 +743,26 @@ h4.duration {
    FOOTER
    ============================================================ */
 footer {
-  background-color: #1a1a1a;
+  background-color: var(--bg-footer);
   color: #aaa;
   text-align: center;
   padding: 10px 20px;
   font-size: 14px;
-  font-family: 'Quattrocento Sans', sans-serif;
-  margin-top: 0;
+  font-family: var(--font-sans);
+  position: relative;
+  z-index: 1;
+}
+
+/* ============================================================
+   SCROLL FADE-IN ANIMATION
+   ============================================================ */
+.fade-in-section {
+  opacity: 0;
+  transition: opacity 0.6s ease-out;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
 }
 
 /* ============================================================
@@ -484,50 +770,35 @@ footer {
    ============================================================ */
 @media (max-width: 768px) {
 
-  body {
-    background-color: #fff;
+  .nav-toggle {
+    display: block;
   }
 
-  /* ✅ Kill Bootstrap's height animation — snaps to grid instantly,
-        no long list flash */
-  /* ✅ Kill Bootstrap's height animation */
-  .site-nav .navbar-collapse {
-    transition: none !important;
-    -webkit-transition: none !important;
-  }
-
-  /* ✅ Apply grid to BOTH .collapsing (first frame) AND .in (open state)
-        .collapsing is the single frame that was showing 5+1 before snapping */
-  .navbar-collapse.collapsing .navbar-nav.navbar-center,
-  .navbar-collapse.in .navbar-nav.navbar-center {
-    display: flex !important;
+  .nav-links {
+    display: none;
     flex-wrap: wrap;
-    justify-content: center;
     width: 100%;
-    margin: 0 !important;
-    padding: 4px 0;
-    float: none !important;
-  }
-
-  .navbar-collapse.collapsing .navbar-nav.navbar-center > li,
-  .navbar-collapse.in .navbar-nav.navbar-center > li {
-    flex: 0 0 33.333%;           /* ✅ exactly 3 per row from first frame */
-    display: flex !important;
     justify-content: center;
-    align-items: center;
-    float: none !important;
+    padding: 4px 0;
   }
 
-  .navbar-collapse.collapsing .navbar-nav.navbar-center > li > a,
-  .navbar-collapse.in .navbar-nav.navbar-center > li > a {
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links li {
+    flex: 0 0 33.333%;
     text-align: center;
+  }
+
+  .nav-links a {
     padding: 8px 4px;
     font-size: 13px;
     width: 100%;
+    text-align: center;
   }
 
-
-  /* ✅ hero-bg at z-index 0 — visible only behind transparent .intro */
+  /* Hero background fallback for mobile */
   .hero-bg {
     display: block;
     position: fixed;
@@ -539,57 +810,18 @@ footer {
     background-size: cover;
     background-position: center;
     background-attachment: scroll;
-    z-index: 0;
+    z-index: -2;
   }
 
-  /* ✅ .intro transparent so hero-bg shows through */
+  .hero-video {
+    z-index: -1;
+  }
+
   .intro {
-    background-image: none !important;
-    background-color: transparent !important;
+    background-image: none;
+    background-color: transparent;
     background-attachment: scroll;
-    position: relative;
     z-index: 1;
-  }
-
-  /* ✅ All sections above hero-bg with solid bg colors */
-  #experience.jumbotron {
-    background-color: #f5f5f5 !important;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 0 !important;
-    border-radius: 0 !important;
-  }
-
-  #education.jumbotron {
-    background-color: #fff !important;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 0 !important;
-    border-radius: 0 !important;
-  }
-
-  .skills {
-    position: relative;
-    z-index: 1;
-    background-color: #f5f5f5 !important;
-  }
-
-  .volunteer {
-    position: relative;
-    z-index: 1;
-    background-color: #fff !important;
-  }
-
-  .contactme {
-    position: relative;
-    z-index: 1;
-    background-color: #f5f5f5 !important;
-  }
-
-  footer {
-    position: relative;
-    z-index: 1;
-    background-color: #1a1a1a !important;
   }
 
   .introBlock h1 {
@@ -601,7 +833,7 @@ footer {
   }
 
   .section-heading {
-    font-size: 2.4rem !important;
+    font-size: 2.4rem;
   }
 
   .mobile-only {
@@ -612,52 +844,39 @@ footer {
     display: none;
   }
 
-  /* ✅ Fixed square — !important overrides Bootstrap col-sm-2 */
-  .worklogo {
-    width: 96px !important;
-    height: 96px !important;
-    object-fit: contain;
-    border-radius: 22px;
-    margin: 0 auto 12px;
+  /* Timeline mobile */
+  .timeline {
+    padding-left: 36px;
   }
 
-  /* ✅ Neutralise Bootstrap .row negative margins */
-  .row.work {
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    flex-wrap: nowrap;
+  .timeline::before {
+    left: 12px;
   }
 
-  /* ✅ Equal padding on all description rows */
-  .workdescription {
-    padding-left: 20px !important;
-    padding-right: 20px !important;
+  .timeline-dot {
+    left: -30px;
+    width: 12px;
+    height: 12px;
   }
 
-  /* ✅ Smaller fonts so title+date and name+location fit on one line */
+  .timeline-logo {
+    width: 48px;
+    height: 48px;
+  }
+
   .companyname {
     font-size: 17px;
   }
 
-  .location,
-  .htclocation {
+  .timeline-role {
     font-size: 13px;
   }
 
-  h4.title {
-    font-size: 13px;
-  }
-
-  h4.duration {
+  .timeline-date {
     font-size: 12px;
   }
 
-  .dicon {
-    width: 110px;
-    height: 110px;
-  }
-
-  /* ✅ Volunteer 2x2 grid */
+  /* Volunteer 2x2 grid */
   .volunteerWork {
     display: grid;
     grid-template-columns: repeat(2, auto);
@@ -666,12 +885,23 @@ footer {
   }
 
   .vicon {
-    width: 104px !important;
-    height: 104px !important;
+    width: 104px;
+    height: 104px;
     border-radius: 22px;
   }
 
   .contact {
     gap: 24px;
+  }
+
+  /* Stats mobile */
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 10px 8px;
+  }
+
+  .stat-number {
+    font-size: 2.4rem;
   }
 }

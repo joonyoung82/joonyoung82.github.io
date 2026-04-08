@@ -20,9 +20,10 @@
   <meta property="og:title" content="Joon Lee — Senior QA Engineer" />
   <meta property="og:description" content="Portfolio of Joon Lee, Senior QA Engineer at Apple" />
   <meta property="og:url" content="https://joonyoung82.github.io/" />
+  <meta property="og:image" content="https://joonyoung82.github.io/picture/backgroundimage.jpg" />
+  <meta property="og:type" content="website" />
 
   <link rel="stylesheet" type="text/css" href="main.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=EB+Garamond:600,700|Quattrocento+Sans" rel="stylesheet">
   <link rel="shortcut icon" type="image/x-icon" href="./picture/titleicon.png" />
 </head>
@@ -31,28 +32,32 @@
 
   <div class="hero-bg"></div>
 
+  <video class="hero-video" autoplay muted loop playsinline poster="./picture/backgroundimage.jpg">
+    <source src="./picture/background_video.mp4" type="video/mp4">
+  </video>
+
   <!-- ============================================================ -->
   <!-- NAVBAR                                                       -->
   <!-- ============================================================ -->
-  <nav class="navbar navbar-fixed-top site-nav">
-    <div class="container">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarMenu" aria-expanded="false">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-      </div>
-      <div class="collapse navbar-collapse" id="navbarMenu">
-        <ul class="nav navbar-nav navbar-center">
-          <li><a href="#intro">Home</a></li>
-          <li><a href="#experience">Experience</a></li>
-          <li><a href="#education">Education</a></li>
-          <li><a href="#skills">Skills</a></li>
-          <li><a href="#volunteer">Volunteer</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
+  <nav class="site-nav" id="site-nav">
+    <div class="nav-inner">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+        <span id="themeIcon">☀️</span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#intro">Home</a></li>
+        <li><a href="#stats">Stats</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#volunteer">Volunteer</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
     </div>
   </nav>
 
@@ -67,106 +72,135 @@
     </div>
   </div>
 
+  <!-- All content after hero wrapped to block video bleed-through -->
+  <div class="content-wrap">
+
+  <!-- ============================================================ -->
+  <!-- BY THE NUMBERS                                               -->
+  <!-- ============================================================ -->
+  <section class="section section--alt fade-in-section" id="stats">
+    <h1 class="section-heading">By the Numbers</h1>
+    <div class="stats-grid">
+      <div class="stat-card">
+        <span class="stat-number" data-target="156" data-suffix="%">0%</span>
+        <span class="stat-label">Above Team Average in Bugs Found</span>
+        <span class="stat-context">Apple</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="1" data-suffix="B+">0</span>
+        <span class="stat-label">End Users Reached Through Apps Tested</span>
+        <span class="stat-context">Apple</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="67" data-suffix="%">0</span>
+        <span class="stat-label">Increase in Test Coverage</span>
+        <span class="stat-context">Meta</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="25" data-suffix="+">0</span>
+        <span class="stat-label">Smartphones Shipped to Market</span>
+        <span class="stat-context">HTC</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-number" data-target="70" data-suffix="%">0</span>
+        <span class="stat-label">Faster Testing Through Automation</span>
+        <span class="stat-context">Via Automation</span>
+      </div>
+    </div>
+  </section>
+
   <!-- ============================================================ -->
   <!-- WORK EXPERIENCE                                              -->
   <!-- ============================================================ -->
-  <section class="jumbotron" id="experience">
+  <section class="section fade-in-section" id="experience">
     <h1 class="section-heading">Work Experience</h1>
-    <div class="container career">
+    <div class="timeline">
 
       <!-- Apple -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="https://www.apple.com/" target="_blank">
-          <img class="worklogo col-sm-2" alt="Apple" src="./picture/apple.png" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="https://www.apple.com/" target="_blank">Apple</a></h3>
-            <h3 class="location htclocation">Cupertino, CA</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="https://www.apple.com/" target="_blank">
+              <img class="timeline-logo" alt="Apple" src="./picture/apple.png" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="https://www.apple.com/" target="_blank">Apple</a></h3>
+              <span class="timeline-role">
+                <span class="desktop-only">Senior Quality Assurance Engineer</span>
+                <span class="mobile-only">Senior QA Engineer</span>
+              </span>
+              <span class="timeline-date">Jan 2019 – Present · Cupertino, CA</span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">
-              <span class="desktop-only">Senior Quality Assurance Engineer</span>
-              <span class="mobile-only">Senior QA Engineer</span>
-            </h4>
-            <h4 class="duration">Jan 2019 - Present</h4>
-          </div>
-          <div class="row work">
-            <p class="work-p">Driving end-to-end quality across iOS and macOS apps including News, Stocks, Weather, and iAd; partnered with engineering to streamline bug triage and resolution, managed QA task assignments, validated builds, and uncovered critical defects that improved stability, user experience, and revenue.</p>
-          </div>
-          <div class="workEnd"></div>
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
+            <p class="work-p">Drove end-to-end quality across iOS and macOS apps including News, Stocks, Weather, and iAd; partnered with engineering to streamline bug triage and resolution, managed QA task assignments, validated builds, and uncovered critical defects that improved stability, user experience, and revenue.</p>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
       <!-- Meta -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="https://www.meta.com/" target="_blank">
-          <img class="worklogo col-sm-2" alt="Meta" src="./picture/meta256.png" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="https://www.meta.com/" target="_blank">Meta</a></h3>
-            <h3 class="location htclocation">New York, NY</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="https://www.meta.com/" target="_blank">
+              <img class="timeline-logo" alt="Meta" src="./picture/meta256.png" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="https://www.meta.com/" target="_blank">Meta</a></h3>
+              <span class="timeline-role">Quality Assurance Analyst II</span>
+              <span class="timeline-date">Apr 2018 – Jan 2019 · New York, NY</span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">Quality Assurance Analyst II</h4>
-            <h4 class="duration">Apr 2018 - Jan 2019</h4>
-          </div>
-          <div class="row work">
-            <p class="work-p">Run manual and ad-hoc tests on iOS and Android apps for Local Discovery product. Work with PM, ENG, EM to report weekly QA updates and serve as a mini-lead in NY to be the channel between 3rd party test team in India and QA managers in SF. Developed and executed software test plans, cases, scenarios, for each new feature and assigned to testers overseas.</p>
-          </div>
-          <div class="workEnd"></div>
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
+            <p class="work-p">Ran manual and ad-hoc tests on iOS and Android apps for the Local Discovery product. Worked with PM, ENG, and EM to report weekly QA updates and served as a mini-lead in NY, acting as the channel between the 3rd party test team in India and QA managers in SF. Developed and executed software test plans, cases, and scenarios for each new feature and assigned them to testers overseas.</p>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
       <!-- HTC -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="http://www.htc.com/us/" target="_blank">
-          <img class="worklogo col-sm-2" alt="HTC" src="./picture/HTC256.jpg" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="http://www.htc.com/us/" target="_blank">HTC America</a></h3>
-            <h3 class="location htclocation">Bedminster, NJ</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="http://www.htc.com/us/" target="_blank">
+              <img class="timeline-logo" alt="HTC" src="./picture/HTC256.jpg" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="http://www.htc.com/us/" target="_blank">HTC America</a></h3>
+              <span class="timeline-role">Principal Software QA Engineer</span>
+              <span class="timeline-date">May 2011 – Feb 2018 · Bedminster, NJ</span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">Principal Software QA Engineer</h4>
-            <h4 class="duration">May 2011 - Feb 2018</h4>
-          </div>
-          <div class="row work">
-            <p class="work-p">My team worked on assuring software quality on all smartphones released to Verizon and Sprint, successfully releasing over 25 smartphones in 7 years with more than 25 million units sold. Key achievements include leading the software quality assurance team on releasing HTC One M7 and M8, both of which were awarded "Smartphone of the Year" at the Mobile World Congress in 2013 and 2014.</p>
-          </div>
-          <div class="workEnd"></div>
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
+            <p class="work-p">Led software quality assurance on all smartphones released to Verizon and Sprint, successfully shipping over 25 smartphones in 7 years with more than 25 million units sold. Key achievements included leading the QA team on the HTC One M7 and M8, both awarded "Smartphone of the Year" at Mobile World Congress in 2013 and 2014.</p>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
       <!-- LG -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="http://www.lg.com/us/mobile" target="_blank">
-          <img class="worklogo col-sm-2" alt="LG Electronics" src="./picture/LG256.jpg" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="http://www.lg.com/us/mobile" target="_blank">LG Electronics</a></h3>
-            <h3 class="location htclocation">Morristown, NJ</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="http://www.lg.com/us/mobile" target="_blank">
+              <img class="timeline-logo" alt="LG Electronics" src="./picture/LG256.jpg" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="http://www.lg.com/us/mobile" target="_blank">LG Electronics</a></h3>
+              <span class="timeline-role">Software Verification Engineer</span>
+              <span class="timeline-date">Jan 2008 – May 2011 · Morristown, NJ</span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">Software Verification Engineer</h4>
-            <h4 class="duration">Jan 2008 - May 2011</h4>
-          </div>
-          <div class="row work">
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
             <p class="work-p">Developed and executed software test plans in order to identify software problems and their causes. Reported and tracked bugs, replicated reported bugs, verified bug fixes and new functionalities, regression tested new SW releases, and supported R&D by submitting appropriate logs. Led my team in number of bugs found through black-box testing and carrier requirement testing across different OS: Android, Windows, and BREW.</p>
-          </div>
-          <div class="workEnd"></div>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
     </div>
@@ -175,57 +209,53 @@
   <!-- ============================================================ -->
   <!-- EDUCATION                                                    -->
   <!-- ============================================================ -->
-  <section class="jumbotron" id="education">
+  <section class="section section--alt fade-in-section" id="education">
     <h1 class="section-heading">Education</h1>
-    <div class="container career">
+    <div class="timeline">
 
       <!-- Georgia Tech -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="https://www.gatech.edu/" target="_blank">
-          <img class="worklogo col-sm-2" alt="Georgia Institute of Technology" src="./picture/gatech256.png" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology</a></h3>
-            <h3 class="location">Online</h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="https://www.gatech.edu/" target="_blank">
+              <img class="timeline-logo" alt="Georgia Institute of Technology" src="./picture/gatech256.png" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="https://www.gatech.edu/" target="_blank">Georgia Institute of Technology</a></h3>
+              <span class="timeline-role">M.S. in Analytics</span>
+              <span class="timeline-date">Expected May 2028 · Online</span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">M.S. in Analytics</h4>
-            <h4 class="duration">Expected May 2028</h4>
-          </div>
-          <div class="row work">
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
             <p class="work-p">Pursuing Georgia Tech's OMSA (Online Master of Science in Analytics), ranked the #1 most affordable online graduate analytics program in the U.S. Coursework spans statistical modeling, machine learning, data visualization, and business analytics — applied directly to my work in software quality and test automation.</p>
-          </div>
-          <div class="workEnd"></div>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
       <!-- NJIT -->
-      <div class="row text-left">
-        <div class="col-sm-1"></div>
-        <a href="http://www.njit.edu/" target="_blank">
-          <img class="worklogo col-sm-2" alt="NJIT" src="./picture/NJIT256.png" />
-        </a>
-        <div class="col-sm-7 text-left workdescription">
-          <div class="row work">
-            <h3 class="companyname"><a href="http://www.njit.edu/" target="_blank">New Jersey Institute of Technology</a></h3>
-            <h3 class="location">
-              <span class="desktop-only">Newark, NJ</span>
-              <span class="mobile-only">NJ</span>
-            </h3>
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <div class="timeline-header">
+            <a href="http://www.njit.edu/" target="_blank">
+              <img class="timeline-logo" alt="NJIT" src="./picture/NJIT256.png" />
+            </a>
+            <div class="timeline-meta">
+              <h3 class="companyname"><a href="http://www.njit.edu/" target="_blank">New Jersey Institute of Technology</a></h3>
+              <span class="timeline-role">B.S. in Industrial Engineering</span>
+              <span class="timeline-date">May 2007 ·
+                <span class="desktop-only">Newark, NJ</span>
+                <span class="mobile-only">NJ</span>
+              </span>
+            </div>
           </div>
-          <div class="row work">
-            <h4 class="title">B.S. in Industrial Engineering</h4>
-            <h4 class="duration">May 2007</h4>
-          </div>
-          <div class="row work">
+          <details class="timeline-details">
+            <summary class="timeline-expand">Show details</summary>
             <p class="work-p">Studied mathematics, science, and engineering with a focus on systems thinking and problem solving. Served as student president of KCCC across 10 campuses in the NY metropolitan area, building strong leadership and communication skills.</p>
-          </div>
-          <div class="workEnd"></div>
+          </details>
         </div>
-        <div class="col"></div>
       </div>
 
     </div>
@@ -234,88 +264,113 @@
   <!-- ============================================================ -->
   <!-- SKILLS                                                       -->
   <!-- ============================================================ -->
-  <div class="skills" id="skills">
-    <h1 class="section-heading">Development Capabilities</h1>
-    <div class="development">
-      <img src="./picture/python128.png" alt="python" class="dicon" title="Python"/>
-      <img src="./picture/js128.png" alt="javascript" class="dicon" title="JavaScript"/>
-      <img src="./picture/html128.png" alt="html" class="dicon" title="HTML5"/>
-      <img src="./picture/css128.png" alt="css" class="dicon" title="CSS3"/>
-      <img src="./picture/git128.png" alt="git" class="dicon" title="Git"/>
+  <section class="section fade-in-section" id="skills">
+    <h1 class="section-heading">Skills &amp; Tools</h1>
+    <div class="skills-container">
+      <div class="skill-group">
+        <h3 class="skill-category">Languages</h3>
+        <div class="skill-pills">
+          <span class="pill">Python</span>
+          <span class="pill">Swift</span>
+          <span class="pill">R</span>
+          <span class="pill">JavaScript</span>
+          <span class="pill">HTML/CSS</span>
+          <span class="pill">Bash</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-category">Tools</h3>
+        <div class="skill-pills">
+          <span class="pill">Xcode</span>
+          <span class="pill">Git</span>
+          <span class="pill">Charles</span>
+          <span class="pill">QXDM</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h3 class="skill-category">Platforms</h3>
+        <div class="skill-pills">
+          <span class="pill">iOS</span>
+          <span class="pill">iPadOS</span>
+          <span class="pill">macOS</span>
+          <span class="pill">watchOS</span>
+          <span class="pill">visionOS</span>
+          <span class="pill">Android</span>
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 
-<!-- ============================================================ -->
-<!-- VOLUNTEER                                                    -->
-<!-- ============================================================ -->
-<div class="volunteer" id="volunteer">
-  <h1 class="section-heading">Volunteer</h1>
+  <!-- ============================================================ -->
+  <!-- VOLUNTEER                                                    -->
+  <!-- ============================================================ -->
+  <section class="section section--alt volunteer-section fade-in-section" id="volunteer">
+    <h1 class="section-heading">Volunteer</h1>
 
-  <!-- ✅ Only icons inside the grid -->
-  <div class="volunteerWork">
-    <img src="./picture/mangohouse128blank.png" alt="Mango House" class="vicon" title="Mango House"
-         onclick="openModal('myModalMH')" style="cursor:pointer;">
-    <img src="./picture/livingfields128.png" alt="Living Fields" class="vicon" title="Living Fields"
-         onclick="openModal('myModalLF')" style="cursor:pointer;">
-    <img src="./picture/kccc128.png" alt="KCCC" class="vicon" title="KCCC"
-         onclick="openModal('myModalK')" style="cursor:pointer;">
-    <img src="./picture/compassion128.jpg" alt="Compassion" class="vicon" title="Compassion"
-         onclick="openModal('myModalC')" style="cursor:pointer;">
-  </div>
+    <div class="volunteerWork">
+      <img src="./picture/mangohouse128blank.png" alt="Mango House" class="vicon" title="Mango House"
+           onclick="openModal('myModalMH')" style="cursor:pointer;">
+      <img src="./picture/livingfields128.png" alt="Living Fields" class="vicon" title="Living Fields"
+           onclick="openModal('myModalLF')" style="cursor:pointer;">
+      <img src="./picture/kccc128.png" alt="KCCC" class="vicon" title="KCCC"
+           onclick="openModal('myModalK')" style="cursor:pointer;">
+      <img src="./picture/compassion128.jpg" alt="Compassion" class="vicon" title="Compassion"
+           onclick="openModal('myModalC')" style="cursor:pointer;">
+    </div>
+  </section>
 
-  <!-- ✅ Modals outside the grid — not affected by grid layout -->
+  <!-- Volunteer Modals (outside section for proper full-viewport overlay) -->
   <div id="myModalMH" class="custom-modal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('myModalMH')">&times;</span>
-      <a href="http://www.elijahfoundation.org/whatwedo/mangos.html" target="_blank" class="modal-img">
-        <img src="./picture/mangolong1600.jpg" class="img-responsive volunteer-img">
-      </a>
-      <p class="modal-p">Mango House is a children's home in Thailand dedicated to serving orphans and kids from broken families by providing food, housing, education, and hope through the gospel. Their mission is to send quality students to the best schools possible. The vision for Mango House is twofold: Education and Discipleship.</p>
-      <p class="modal-p">I visited Mango House in 2017 to host VBS, teach English and Math, and to love the children. I also helped send the 2018 mission team with finance, prayer, and planning.</p>
-      <a href="http://www.borgenmagazine.com/mango-house-chiang-mai/" target="_blank">Mango House, a Beacon of Hope in Chiang Mai</a>
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('myModalMH')">&times;</span>
+        <a href="http://www.elijahfoundation.org/whatwedo/mangos.html" target="_blank" class="modal-img">
+          <img src="./picture/mangolong1600.jpg" class="volunteer-img" alt="Mango House">
+        </a>
+        <p class="modal-p">Mango House is a children's home in Thailand dedicated to serving orphans and kids from broken families by providing food, housing, education, and hope through the gospel. Their mission is to send quality students to the best schools possible. The vision for Mango House is twofold: Education and Discipleship.</p>
+        <p class="modal-p">I visited Mango House in 2017 to host VBS, teach English and Math, and to love the children. I also helped send the 2018 mission team with finance, prayer, and planning.</p>
+        <a href="http://www.borgenmagazine.com/mango-house-chiang-mai/" target="_blank" class="modal-link">Mango House, a Beacon of Hope in Chiang Mai</a>
+      </div>
+    </div>
+
+    <div id="myModalLF" class="custom-modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('myModalLF')">&times;</span>
+        <a href="http://www.livingfields.org/#/home" target="_blank" class="modal-img">
+          <img src="./picture/mainLivingfields1600.jpg" class="volunteer-img" alt="Living Fields">
+        </a>
+        <p class="modal-p">Living Fields is a church planted in Lynn, MA., which focuses on spreading hope and the good news to Cambodian killing fields refugees. Many Cambodians suffer effects from the Khmer Rouge genocide in the 70's from PTSD, alcohol & drug abuse, etc. Living Fields ministers to this unreached community, many of whom continue to hang tightly to the hope of a better life.</p>
+        <p class="modal-p">I served as team leader for three mission teams to Living Fields to host VBS for the kids and to help with construction of their dormitory. We also participated in the water festival, the largest Southeast Asian festival on the East Coast, to raise awareness and spread the gospel.</p>
+        <a href="https://www.egc.org/blog-2/2008/10/15/cambodian-ministries" target="_blank" class="modal-link">From Killing Fields to Living Fields</a>
+      </div>
+    </div>
+
+    <div id="myModalK" class="custom-modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('myModalK')">&times;</span>
+        <a href="https://www.gcx.org/kcccusa/" target="_blank" class="modal-img">
+          <img src="./picture/kccc1600.png" class="volunteer-img" alt="KCCC">
+        </a>
+        <p class="modal-p">KCCC is a branch of the Cru movement, an interdenominational Christian parachurch organization for college students. Cru is active on 5,300 college campuses worldwide in 109 countries and has 25,000 missionaries in 191 countries. The East Coast Chapter of KCCC serves 10 campuses in the NY metropolitan area, consisting of approximately 1,000 members year in and year out.</p>
+        <p class="modal-p">I served as student president in 2007 and currently am sponsoring 6 full-time staff members with finances and prayer.</p>
+      </div>
+    </div>
+
+    <div id="myModalC" class="custom-modal">
+      <div class="modal-content">
+        <span class="modal-close" onclick="closeModal('myModalC')">&times;</span>
+        <a href="https://www.compassion.com/" target="_blank" class="modal-img">
+          <img src="./picture/compassion1600.jpg" class="volunteer-img" alt="Compassion International">
+        </a>
+        <p class="modal-p">Compassion International is a Christian humanitarian aid child sponsorship organization dedicated to the long-term development of children living in poverty around the world.</p>
+        <p class="modal-p">I have been sponsoring children since 2008 and currently am sponsoring 6 kids through Compassion around the world.</p>
+      </div>
     </div>
   </div>
-
-  <div id="myModalLF" class="custom-modal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('myModalLF')">&times;</span>
-      <a href="http://www.livingfields.org/#/home" target="_blank" class="modal-img">
-        <img src="./picture/mainLivingfields1600.jpg" class="img-responsive volunteer-img">
-      </a>
-      <p class="modal-p">Living Fields is a church planted in Lynn, MA., which focuses on spreading hope and the good news to Cambodian killing fields refugees. Many Cambodians suffer effects from the Khmer Rouge genocide in the 70's from PTSD, alcohol & drug abuse, etc. Living Fields ministers to this unreached community, many of whom continue to hang tightly to the hope of a better life.</p>
-      <p class="modal-p">I served as team leader for three mission teams to Living Fields to host VBS for the kids and to help with construction of their dormitory. We also participated in the water festival, the largest Southeast Asian festival on the East Coast, to raise awareness and spread the gospel.</p>
-      <a href="https://www.egc.org/blog-2/2008/10/15/cambodian-ministries" target="_blank">From Killing Fields to Living Fields</a>
-    </div>
-  </div>
-
-  <div id="myModalK" class="custom-modal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('myModalK')">&times;</span>
-      <a href="https://www.gcx.org/kcccusa/" target="_blank" class="modal-img">
-        <img src="./picture/kccc1600.png" class="img-responsive volunteer-img">
-      </a>
-      <p class="modal-p">KCCC is a branch of the Cru movement, an interdenominational Christian parachurch organization for college students. Cru is active on 5,300 college campuses worldwide in 109 countries and has 25,000 missionaries in 191 countries. The East Coast Chapter of KCCC serves 10 campuses in the NY metropolitan area, consisting of approximately 1,000 members year in and year out.</p>
-      <p class="modal-p">I served as student president in 2007 and currently am sponsoring 6 full-time staff members with finances and prayer.</p>
-    </div>
-  </div>
-
-  <div id="myModalC" class="custom-modal">
-    <div class="modal-content">
-      <span class="modal-close" onclick="closeModal('myModalC')">&times;</span>
-      <a href="https://www.compassion.com/" target="_blank" class="modal-img">
-        <img src="./picture/compassion1600.jpg" class="img-responsive volunteer-img">
-      </a>
-      <p class="modal-p">Compassion International is a Christian humanitarian aid child sponsorship organization dedicated to the long-term development of children living in poverty around the world.</p>
-      <p class="modal-p">I have been sponsoring children since 2008 and currently am sponsoring 6 kids through Compassion around the world.</p>
-    </div>
-  </div>
-
-</div>
 
   <!-- ============================================================ -->
   <!-- CONTACT                                                      -->
   <!-- ============================================================ -->
-  <section class="jumbotron contactme" id="contact">
+  <section class="section" id="contact">
     <h1 class="section-heading">Contact Me</h1>
     <div class="contact">
 
@@ -328,7 +383,8 @@
 
       <a class="img" href="./picture/Resume.pdf" download>
         <div class="icon-wrap">
-          <img src="./picture/resume58.png" alt="Resume"/>
+          <img src="./picture/resume58.png" alt="Resume" class="icon-light"/>
+          <img src="./picture/resume58_dark.png" alt="Resume" class="icon-dark"/>
           <span class="contact-label">Resume</span>
         </div>
       </a>
@@ -354,38 +410,37 @@
     <p>© Joon Lee, 2026</p>
   </footer>
 
-  <!-- ✅ Modal functions inline — guaranteed to load with the page -->
-<script>
-  function openModal(id) {
-    document.getElementById(id).classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
+  </div><!-- .content-wrap -->
 
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('is-open');
-    document.body.style.overflow = '';
-  }
+  <!-- Modal functions -->
+  <script>
+    function openModal(id) {
+      document.getElementById(id).classList.add('is-open');
+      document.body.style.overflow = 'hidden';
+    }
 
-  window.addEventListener('click', function(e) {
-    if (e.target.classList.contains('custom-modal')) {
-      e.target.classList.remove('is-open');
+    function closeModal(id) {
+      document.getElementById(id).classList.remove('is-open');
       document.body.style.overflow = '';
     }
-  });
 
-  document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape') {
-      document.querySelectorAll('.custom-modal.is-open').forEach(function(m) {
-        m.classList.remove('is-open');
-      });
-      document.body.style.overflow = '';
-    }
-  });
-</script>
+    window.addEventListener('click', function(e) {
+      if (e.target.classList.contains('custom-modal')) {
+        e.target.classList.remove('is-open');
+        document.body.style.overflow = '';
+      }
+    });
 
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.custom-modal.is-open').forEach(function(m) {
+          m.classList.remove('is-open');
+        });
+        document.body.style.overflow = '';
+      }
+    });
+  </script>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
   <script src='main.js'></script>
 </body>
 </html>
