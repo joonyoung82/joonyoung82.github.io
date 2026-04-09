@@ -33,18 +33,27 @@ const themeToggle = document.getElementById('themeToggle');
 const themeIcon = document.getElementById('themeIcon');
 const storedTheme = localStorage.getItem('theme');
 
-function applyTheme(theme) {
+function applyTheme(theme, save) {
   document.documentElement.setAttribute('data-theme', theme);
   themeIcon.textContent = theme === 'dark' ? '🌙' : '☀️';
-  localStorage.setItem('theme', theme);
+  if (save !== false) localStorage.setItem('theme', theme);
 }
 
 // Initialize: stored preference > OS preference > light
 if (storedTheme) {
   applyTheme(storedTheme);
 } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-  applyTheme('dark');
+  applyTheme('dark', false);
+} else {
+  applyTheme('light', false);
 }
+
+// Listen for system theme changes (only if user hasn't set a manual preference)
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  if (!localStorage.getItem('theme')) {
+    applyTheme(e.matches ? 'dark' : 'light', false);
+  }
+});
 
 themeToggle.addEventListener('click', () => {
   const current = document.documentElement.getAttribute('data-theme');
