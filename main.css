@@ -316,6 +316,19 @@ img {
   border-color: #fff;
 }
 
+.cta-btn--outline {
+  background-color: #fff;
+  color: #111 !important;
+  border-color: #fff;
+  margin-left: 12px;
+}
+
+.cta-btn--outline:hover {
+  background-color: transparent;
+  color: #fff !important;
+  border-color: #fff;
+}
+
 /* ============================================================
    CONTENT WRAP — solid background to block fixed video
    ============================================================ */
@@ -974,6 +987,11 @@ footer {
 
   .introBlock p {
     font-size: 16px;
+  }
+
+  .cta-btn--outline {
+    margin-left: 0;
+    margin-top: 10px;
   }
 
   .section-heading {

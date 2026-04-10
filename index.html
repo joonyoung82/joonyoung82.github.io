@@ -70,6 +70,7 @@
       <h1>Joon Lee</h1>
       <p>Senior QA Engineer @ Apple · 15+ years shipping mobile apps used by billions</p>
       <a href="#contact" class="cta-btn">Get In Touch</a>
+      <a href="./picture/Resume.pdf" download class="cta-btn cta-btn--outline">Download Resume</a>
     </div>
   </div>
 
@@ -397,54 +398,6 @@
     </div>
   </section>
 
-  <!-- Volunteer Modals (outside section for proper full-viewport overlay) -->
-  <div id="myModalMH" class="custom-modal">
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('myModalMH')">&times;</span>
-        <a href="http://www.elijahfoundation.org/whatwedo/mangos.html" target="_blank" class="modal-img">
-          <img src="./picture/mangolong1600.jpg" class="volunteer-img" alt="Mango House">
-        </a>
-        <p class="modal-p">Mango House is a children's home in Thailand dedicated to serving orphans and kids from broken families by providing food, housing, education, and hope through the gospel. Their mission is to send quality students to the best schools possible. The vision for Mango House is twofold: Education and Discipleship.</p>
-        <p class="modal-p">I visited Mango House in 2017 to host VBS, teach English and Math, and to love the children. I also helped send the 2018 mission team with finance, prayer, and planning.</p>
-        <a href="http://www.borgenmagazine.com/mango-house-chiang-mai/" target="_blank" class="modal-link">Mango House, a Beacon of Hope in Chiang Mai</a>
-      </div>
-    </div>
-
-    <div id="myModalLF" class="custom-modal">
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('myModalLF')">&times;</span>
-        <a href="http://www.livingfields.org/#/home" target="_blank" class="modal-img">
-          <img src="./picture/mainLivingfields1600.jpg" class="volunteer-img" alt="Living Fields">
-        </a>
-        <p class="modal-p">Living Fields is a church planted in Lynn, MA., which focuses on spreading hope and the good news to Cambodian killing fields refugees. Many Cambodians suffer effects from the Khmer Rouge genocide in the 70's from PTSD, alcohol & drug abuse, etc. Living Fields ministers to this unreached community, many of whom continue to hang tightly to the hope of a better life.</p>
-        <p class="modal-p">I served as team leader for three mission teams to Living Fields to host VBS for the kids and to help with construction of their dormitory. We also participated in the water festival, the largest Southeast Asian festival on the East Coast, to raise awareness and spread the gospel.</p>
-        <a href="https://www.egc.org/blog-2/2008/10/15/cambodian-ministries" target="_blank" class="modal-link">From Killing Fields to Living Fields</a>
-      </div>
-    </div>
-
-    <div id="myModalK" class="custom-modal">
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('myModalK')">&times;</span>
-        <a href="https://www.gcx.org/kcccusa/" target="_blank" class="modal-img">
-          <img src="./picture/kccc1600.png" class="volunteer-img" alt="KCCC">
-        </a>
-        <p class="modal-p">KCCC is a branch of the Cru movement, an interdenominational Christian parachurch organization for college students. Cru is active on 5,300 college campuses worldwide in 109 countries and has 25,000 missionaries in 191 countries. The East Coast Chapter of KCCC serves 10 campuses in the NY metropolitan area, consisting of approximately 1,000 members year in and year out.</p>
-        <p class="modal-p">I served as student president in 2007 and currently am sponsoring 6 full-time staff members with finances and prayer.</p>
-      </div>
-    </div>
-
-    <div id="myModalC" class="custom-modal">
-      <div class="modal-content">
-        <span class="modal-close" onclick="closeModal('myModalC')">&times;</span>
-        <a href="https://www.compassion.com/" target="_blank" class="modal-img">
-          <img src="./picture/compassion1600.jpg" class="volunteer-img" alt="Compassion International">
-        </a>
-        <p class="modal-p">Compassion International is a Christian humanitarian aid child sponsorship organization dedicated to the long-term development of children living in poverty around the world.</p>
-        <p class="modal-p">I have been sponsoring children since 2008 and currently am sponsoring 6 kids through Compassion around the world.</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ============================================================ -->
   <!-- CONTACT                                                      -->
   <!-- ============================================================ -->
@@ -489,6 +442,53 @@
   </footer>
 
   </div><!-- .content-wrap -->
+
+  <!-- Volunteer Modals (outside content-wrap to avoid z-index stacking issues) -->
+  <div id="myModalMH" class="custom-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal(‘myModalMH’)">&times;</span>
+      <a href="http://www.elijahfoundation.org/whatwedo/mangos.html" target="_blank" class="modal-img">
+        <img src="./picture/mangolong1600.jpg" class="volunteer-img" alt="Mango House">
+      </a>
+      <p class="modal-p">Mango House is a children’s home in Thailand that serves orphans and children from broken families by providing food, shelter, education, and hope through the gospel. Its mission is to equip students to attend the best schools possible, with a dual focus on education and discipleship.</p>
+      <p class="modal-p">I first visited Mango House in 2017, where I led Vacation Bible School, taught English and math, and invested in the lives of the children. Since then, I’ve continued to support Mango House through ongoing financial contributions, prayer, and by helping equip and send short-term mission teams.</p>
+      <a href="http://www.borgenmagazine.com/mango-house-chiang-mai/" target="_blank" class="modal-link">Mango House, a Beacon of Hope in Chiang Mai</a>
+    </div>
+  </div>
+
+  <div id="myModalLF" class="custom-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal(‘myModalLF’)">&times;</span>
+      <a href="http://www.livingfields.org/#/home" target="_blank" class="modal-img">
+        <img src="./picture/mainLivingfields1600.jpg" class="volunteer-img" alt="Living Fields">
+      </a>
+      <p class="modal-p">Living Fields is a church plant in Lynn, Massachusetts, dedicated to bringing hope and the gospel to Cambodian refugees impacted by the killing fields. Many in this community continue to face lasting effects of the Khmer Rouge era, including PTSD and struggles with substance abuse. Living Fields serves this often unreached population, walking alongside them as they hold onto the hope of a better future.</p>
+      <p class="modal-p">I served as team leader for three mission trips to Living Fields, where we hosted Vacation Bible School for children and supported the construction of a dormitory. We also took part in the annual Water Festival—the largest Southeast Asian festival on the East Coast—to raise awareness and share the gospel.</p>
+      <a href="https://www.egc.org/blog-2/2008/10/15/cambodian-ministries" target="_blank" class="modal-link">From Killing Fields to Living Fields</a>
+    </div>
+  </div>
+
+  <div id="myModalK" class="custom-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal(‘myModalK’)">&times;</span>
+      <a href="https://www.gcx.org/kcccusa/" target="_blank" class="modal-img">
+        <img src="./picture/kccc1600.png" class="volunteer-img" alt="KCCC">
+      </a>
+      <p class="modal-p">KCCC is a branch of the Cru movement, an interdenominational Christian parachurch organization for college students. Cru is active on 5,300 college campuses worldwide in 109 countries and has 25,000 missionaries in 191 countries. The East Coast Chapter of KCCC serves 10 campuses in the NY metropolitan area, consisting of approximately 1,000 members year in and year out.</p>
+      <p class="modal-p">I served as student president in 2007 and currently am sponsoring 6 full-time staff members with finances and prayer.</p>
+    </div>
+  </div>
+
+  <div id="myModalC" class="custom-modal">
+    <div class="modal-content">
+      <span class="modal-close" onclick="closeModal(‘myModalC’)">&times;</span>
+      <a href="https://www.compassion.com/" target="_blank" class="modal-img">
+        <img src="./picture/compassion1600.jpg" class="volunteer-img" alt="Compassion International">
+      </a>
+      <p class="modal-p">Compassion International is a Christian humanitarian aid child sponsorship organization dedicated to the long-term development of children living in poverty around the world.</p>
+      <p class="modal-p">I have been sponsoring children since 2008 and currently am sponsoring 20 kids through Compassion around the world.</p>
+    </div>
+  </div>
 
   <!-- Modal functions -->
   <script>
