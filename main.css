@@ -637,6 +637,16 @@ img {
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.project-icon {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .project-desc {
